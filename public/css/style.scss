@@ -11,7 +11,7 @@ $bplarge:     1200px;
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: 5px;
-  width: 70%;
+  width: 700px;
   @inlude bpsmall {
 
   }
@@ -21,7 +21,7 @@ $bplarge:     1200px;
   // position: relative;
   display:flex;
   justify-content: center;
-  margin: 5px;
+  margin: 10px 5px 5px 5px;
   padding: 5px;
   width: 200px;
   height: 200px;
@@ -35,4 +35,9 @@ $bplarge:     1200px;
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
+
+  img {
+    width: 150px;
+    max-height: 150px;
+  }
 }
