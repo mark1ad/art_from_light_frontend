@@ -3,12 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Art From Light</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
     <script src="/js/app.js" charset="utf-8"></script>
     <script src="/js/controllers/main.js" charset="utf-8"></script>
+    <script src="/js/controllers/home.js" charset="utf-8"></script>
+
     <link rel="stylesheet" href="style.css">
   </head>
   <body ng-controller="MainController as main">
-    {{main.here}}
+
+
+    <!-- home page  -->
+    <div ng-controller="HomeController as home"
+        ng-include="'partials/home.html'"
+        ng-init='home.getAllUsers()'>
+
+    </div>
   </body>
 </html>

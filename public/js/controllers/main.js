@@ -17,7 +17,5 @@
 
     const vm = this;
 
-    vm.here = "this is the start"
-
   }
 })();
