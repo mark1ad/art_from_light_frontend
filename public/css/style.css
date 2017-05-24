@@ -1,0 +1,25 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 5px;
+  width: 70%; }
+@inlude bpsmall {}
+.thumbnail {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  flex-direction: row;
+  align-items: flex-start; }
+
+.thumbnail-data {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,7 +1,8 @@
-
-      <div>
-        <ul>
-         <li ng-repeat="user in home.allUsers">{{user.name}}</li>
-       </ul>
-
+<div class="gallery">
+      <div class="thumbnail" ng-repeat="user in home.allUsers">
+        <div class="thumbnail-data">
+          <img src={{user.profile_url}} alt="">
+          {{user.name}}
+        </div>
       </div>
+</div>
