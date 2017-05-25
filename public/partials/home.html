@@ -1,11 +1,21 @@
-<div class="gallery">
-      <div class="thumbnail" ng-repeat="user in home.allUsers">
-        <div class="thumbnail-data">
-            <img src={{user.profile_url}} alt="">
-          <div>{{user.name}}</div>
-          <div>{{user.address}}</div>
-          <div>Photo Shoots</div>
-          <div>Collections</div>
-        </div>
+<div class="quote-container">
+  <div class="quotes">
+    <blockquote class="quote">Art is not what you see, but what you make others see.<br>- Edgar Degas</blockquote>
+
+    <blockquote class="quote">The purpose of art is washing the dust of daily life off our souls.<br>- Pablo Picasso</blockquote>
+  </div>
+</div>
+
+<div class="homepage">
+  <div class="gallery">
+    <div class="thumbnail" ng-repeat="user in home.allUsers">
+      <div class="thumbnail-data">
+        <img src={{user.profile_url}} alt="">
+        <div>{{user.name}}</div>
+        <div>{{user.address}}</div>
+        <div>Photo Shoots</div>
+        <div>Collections</div>
       </div>
+    </div>
+  </div>
 </div>

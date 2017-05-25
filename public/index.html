@@ -10,7 +10,7 @@
     <script src="/js/controllers/home.js" charset="utf-8"></script>
 
    <!-- fonts and styles -->
-  <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito|Quicksand|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
   </head>
 
@@ -19,12 +19,8 @@
     <!-- Header and nav  bar -->
     <div ng-include="'partials/header.html'"></div>
 
-    <p>Art is not what you see, but what you make others see. Edgar Degas</p>
-
-    <p>The purpose of art is washing the dust of daily life off our souls. Pablo Picasso</p>
-
     <!-- home page  -->
-    <div class="homepage" ng-controller="HomeController as home"
+    <div ng-controller="HomeController as home"
     ng-include="'partials/home.html'"
     ng-init='home.getAllUsers()'></div>
 
