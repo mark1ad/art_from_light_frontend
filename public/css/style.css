@@ -5,10 +5,11 @@ body {
 
 .header {
   font-family: 'Quicksand', sans-serif;
-  width: 100%; }
+  width: 100%;
+  background-color: #f9f9f9; }
 
 .head-title {
-  background-color: #f9f9f9; }
+  padding: 20px 30px; }
 
 .title {
   font-size: 3em; }
@@ -21,17 +22,22 @@ body {
   flex-wrap: wrap;
   justify-content: flex-start;
   flex-direction: row;
+  font-size: .9em;
   width: 100%;
   border-top: 1px solid black;
-  border-bottom: 1px solid black; }
+  background-color: white; }
 
 .navbar {
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   font-family: 'Raleway', sans-serif;
-  padding: 10px; }
-  .navbar .navbarlogin {
-    align-self: flex-end; }
+  padding: 10px 30px;
+  width: 100%; }
+  .navbar .navmenu {
+    display: flex; }
+  .navbar .navlink {
+    margin-right: 15px; }
 
 .homepage {
   display: flex;
@@ -42,18 +48,19 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 50px 20px;
-  padding-top: 50px;
-  padding-bottom: 50px; }
-
-.quotes {
-  display: flex;
-  justify-content: center;
-  flex-direction: column; }
-
-.quote {
-  font-size: 1.2em;
-  margin-bottom: 5px; }
+  margin: 20px 20px;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  .quote-container .quotes {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%; }
+  .quote-container .quote {
+    font-size: 1.2em;
+    margin-bottom: 5px; }
+  .quote-container .quoteauthor {
+    font-size: .7em; }
 
 .gallery {
   display: flex;
