@@ -12,7 +12,7 @@
     if (window.location.href === 'http://localhost:3001/') {
       URL = 'http://localhost:3000/';
     } else {
-      URL = 'https://art_from_light_app.com/';
+      URL = 'https://art-from-light.herokuapp.com/';
     }
 
     const vm = this;
