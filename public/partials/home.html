@@ -5,16 +5,6 @@
       <span class="quoteauthor">- Edgar Degas</span>
     </blockquote>
 
-    <!--
-    <blockquote class="quote">The purpose of art is washing the dust of daily life off our souls.<br>- Pablo Picasso</blockquote>
-     -->
-
-     <!--
-    <blockquote class="quote">
-      A true photograph need not be explained, nor can it be contained in words.<br>
-      – Ansel Adams
-    </blockquote>
-     -->
 
     <blockquote  class="quote">
       A great photograph is one that fully expresses what one feels, in the deepest sense, about what is being photographed.<br>
@@ -23,15 +13,21 @@
   </div>
 </div>
 
-<div class="homepage">
-  <div class="gallery">
-    <div class="thumbnail" ng-repeat="user in home.allUsers">
-      <div class="thumbnail-data">
-        <img src={{user.profile_url}} alt="">
-        <div>{{user.name}}</div>
-        <div>{{user.address}}</div>
-        <div>Photo Shoots</div>
-        <div>Collections</div>
+<div class="homepagecontainer">
+  <div class="homepage">
+    <div class="featured">
+      Featured Collections
+    </div>
+
+    <div class="gallery">
+      <div class="thumbnail" ng-repeat="user in home.allUsers">
+        <div class="thumbnail-data">
+          <img src={{user.profile_url}} alt="">
+          <div>{{user.name}}</div>
+          <div>{{user.address}}</div>
+          <div>Photo Shoots</div>
+          <div>Collections</div>
+        </div>
       </div>
     </div>
   </div>

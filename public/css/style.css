@@ -39,10 +39,15 @@ body {
   .navbar .navlink {
     margin-right: 15px; }
 
-.homepage {
+.homepagecontainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
+
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; }
 
 .quote-container {
   display: flex;
@@ -61,6 +66,13 @@ body {
     margin-bottom: 5px; }
   .quote-container .quoteauthor {
     font-size: .7em; }
+
+.featured {
+  width: 150px;
+  min-width: 150px;
+  border: 1px solid black;
+  margin-left: 30px;
+  margin-top: 25px; }
 
 .gallery {
   display: flex;

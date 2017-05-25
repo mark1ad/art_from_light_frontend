@@ -76,10 +76,16 @@ body {
 // ***********************
 // Home page
 
-.homepage {
+.homepagecontainer {
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
 }
 
 .quote-container {
@@ -107,7 +113,13 @@ body {
   }
 }
 
-
+.featured {
+  width: 150px;
+  min-width: 150px;
+  border: 1px solid black;
+  margin-left: 30px;
+  margin-top: 25px;
+}
 
 .gallery {
   display: flex;
