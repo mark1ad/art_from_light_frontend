@@ -9,6 +9,8 @@
     <script src="/js/controllers/main.js" charset="utf-8"></script>
     <script src="/js/controllers/home.js" charset="utf-8"></script>
     <script src="/js/controllers/login.js" charset="utf-8"></script>
+    <script src="/js/controllers/user.js" charset="utf-8"></script>
+
 
    <!-- fonts and styles -->
   <link href="https://fonts.googleapis.com/css?family=Nunito|Quicksand|Raleway" rel="stylesheet">
@@ -26,15 +28,17 @@
     ng-include="'partials/home.html'"
     ng-init='home.getAllUsers()'></div>
 
-    <div ng-if="main.curPage === main.userPage"
-      ng-include="'partials/user.html'"></div>
+    <!-- User page -->
+    <div
+      ng-if="main.curPage === main.userPage"
+      ng-controller="UserPageController as user"
+      ng-include="'partials/user.html'"
+      ng-init="user.showPage(main.selectedUserId)"></div>
 
     <!-- login page -->
     <div  ng-if="main.curPage === main.loginPage"
       ng-include="'partials/login.html'"
-      ng-controller="LoginController as login">
-
-    </div>
+      ng-controller="LoginController as login"></div>
 
     <!-- footer -->
     <div ng-include="'partials/footer.html'">

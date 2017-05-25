@@ -23,6 +23,7 @@
     function login(main) {
       if (vm.user.name === undefined || vm.user.name === "") return;
 
+      main.selectedUserId = -1;
       $http({
         method: 'POST',
         url: URL + 'users/login',
@@ -35,6 +36,7 @@
       }).then(function(response) {
         // console.log(response.data);
         if (response.data.status == 200) {
+          main.selectedUserId = response.data.user.id;
           main.userID = response.data.user.id;
           main.userName = response.data.user.name;
           vm.badLogin = false;

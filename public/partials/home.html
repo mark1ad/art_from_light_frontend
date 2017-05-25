@@ -22,8 +22,8 @@
     <div class="gallery">
       <div class="thumbnail" ng-repeat="user in home.allUsers">
         <div class="thumbnail-data">
-          <img src={{user.profile_url}} alt="">
-          <div>{{user.name}}</div>
+          <img ng-click="main.showUserPage(user.id)" src={{user.profile_url}} alt="">
+          <div ng-click="main.showUserPage(user.id)">{{user.name}}</div>
           <div>{{user.address}}</div>
           <div>Photo Shoots</div>
           <div>Collections</div>

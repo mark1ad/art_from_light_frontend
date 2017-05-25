@@ -23,11 +23,13 @@
     vm.userPage = 2;
 
     vm.curPage = vm.homePage;
+    vm.selectedUserId = -1;
     vm.userID = 0;
     vm.userName = "";
     vm.showLogin = showLogin;
     vm.signOut = signOut;
     vm.showHome = showHome;
+    vm.showUserPage = showUserPage;
 
     function showLogin() {
       vm.curPage = vm.loginPage;
@@ -41,6 +43,11 @@
       vm.userID = 0;
       vm.userName = "";
       vm.curPage = vm.homePage;
+    }
+
+    function showUserPage(id){
+      vm.curPage = vm.userPage;
+      vm.selectedUserId = id;
     }
   }
 })();
