@@ -101,4 +101,9 @@ body {
     height: auto;
     max-width: 200px; }
 
+.footer {
+  color: #8f8f8f;
+  background-color: #1e1e1e;
+  padding: 20px; }
+
 /*# sourceMappingURL=style.css.map */
