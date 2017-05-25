@@ -1,3 +1,4 @@
+
 // =========== MEDIA QUERY VARIABLES ==============
 
 $bpsmall:     600px;
@@ -213,11 +214,11 @@ body {
   }
 }
 
+//******************************
+// user
+@import 'user';
+
+
 //**********************************
 // Footer
-
-.footer {
-  color: #8f8f8f;
-  background-color: #1e1e1e;
-  padding: 20px;
-}
+@import 'footer';

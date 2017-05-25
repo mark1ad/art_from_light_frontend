@@ -17,10 +17,28 @@
 
     const vm = this;
 
+    //**************************************
+    // Controller members
+    vm.currentUser = {};
+
     vm.showPage = showPage;
 
+    //**************************************
+    // Controller functions
     function showPage(userID) {
-      console.log("show page ", userID);
+      if (userID < 0) return;
+
+      $http(
+        {
+          method: 'GET',
+          url: URL + 'users/' + userID
+        }).then( function(response) {
+          vm.currentUser = response.data;
+        }, function(error) {
+          console.log("user.showPage errors: ", error);
+        }
+      )
     }
+
   }
 })();
