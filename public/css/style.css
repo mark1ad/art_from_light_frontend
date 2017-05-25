@@ -143,6 +143,22 @@ body {
     padding: 10px;
     cursor: pointer; }
 
+.user-container {
+  display: flex;
+  justify-content: center; }
+
+.user-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0; }
+  .user-info .username {
+    font-size: 2em;
+    margin-bottom: 10px; }
+  .user-info img {
+    margin-bottom: 10px; }
+
 .footer {
   color: #8f8f8f;
   background-color: #1e1e1e;

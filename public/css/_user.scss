@@ -1,4 +1,23 @@
 // For the user display pagehelp
 
 .user-container {
+  display: flex;
+  justify-content: center;
+}
+
+.user-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0;
+
+  .username {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+
+  img {
+    margin-bottom: 10px;
+  }
 }
