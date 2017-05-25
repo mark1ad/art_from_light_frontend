@@ -17,5 +17,22 @@
 
     const vm = this;
 
+    // Constants for display pages
+    vm.homePage = 0;
+    vm.loginPage = 1;
+
+    vm.curPage = vm.homePage;
+    vm.userID = 0;
+    vm.userName = "";
+    vm.showLogin = showLogin;
+    vm.showHome = showHome;
+
+    function showLogin() {
+      vm.curPage = vm.loginPage;
+    }
+
+    function showHome() {
+      vm.curPage = vm.homePage;
+    }
   }
 })();

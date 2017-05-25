@@ -17,6 +17,8 @@
 
     const vm = this;
 
+    
+
     // Controller properties
     vm.allUsers = [];
     vm.getAllUsers = getAllUsers;
@@ -35,6 +37,7 @@
           console.log("home.getAllUsers error: ", error);
         })
     }
+
 
   }
 })();
