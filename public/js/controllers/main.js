@@ -20,11 +20,13 @@
     // Constants for display pages
     vm.homePage = 0;
     vm.loginPage = 1;
+    vm.userPage = 2;
 
     vm.curPage = vm.homePage;
     vm.userID = 0;
     vm.userName = "";
     vm.showLogin = showLogin;
+    vm.signOut = signOut;
     vm.showHome = showHome;
 
     function showLogin() {
@@ -32,6 +34,12 @@
     }
 
     function showHome() {
+      vm.curPage = vm.homePage;
+    }
+
+    function signOut() {
+      vm.userID = 0;
+      vm.userName = "";
       vm.curPage = vm.homePage;
     }
   }

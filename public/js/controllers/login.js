@@ -38,7 +38,7 @@
           main.userID = response.data.user.id;
           main.userName = response.data.user.name;
           vm.badLogin = false;
-          main.curPage = main.homePage;
+          main.curPage = main.userPage;
         }
         else {
           vm.badLogin = true;

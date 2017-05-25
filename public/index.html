@@ -21,11 +21,13 @@
     <div
       ng-include="'partials/header.html'"></div>
 
-    <!-- {{main.loginPage}} Here -->
     <!-- home page  -->
     <div ng-if="main.curPage === main.homePage" ng-controller="HomeController as home"
     ng-include="'partials/home.html'"
     ng-init='home.getAllUsers()'></div>
+
+    <div ng-if="main.curPage === main.userPage"
+      ng-include="'partials/user.html'"></div>
 
     <!-- login page -->
     <div  ng-if="main.curPage === main.loginPage"

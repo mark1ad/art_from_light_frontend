@@ -4,6 +4,22 @@ $bpsmall:     600px;
 $bpmed:       900px;
 $bplarge:     1200px;
 
+//***************************
+// Colors
+$blue:        #0062A3;
+$grey:        #5F7278;
+
+//******************************
+// mixins
+@mixin box($rad, $shade, $color) {
+  -webkit-border-radius:  $rad;
+  -moz-border-radius:     $rad;
+  -ms-border-radius:      $rad;
+  border-radius:          $rad;
+  -webkit-box-shadow:     0 0 $shade $color;
+  -moz-box-shadow:        0 0 $shade $color;
+  box-shadow:             0 0 $shade $color;
+}
 
 // *************************
 // page defaults
@@ -154,6 +170,46 @@ body {
     width: auto;
     height: auto;
     max-width: 200px;
+  }
+}
+
+//********************************
+// login page
+.logincontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.loginform {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  input[type=text], input[type=password] {
+    @include box(3px, 1px, $blue);
+    padding: .5em;
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+
+  input[type=submit] {
+    margin-top: 10px;
+    border: none;
+    background-color: white;
+    @include box(3px, 3px, $grey);
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px;
+    cursor: pointer;
   }
 }
 

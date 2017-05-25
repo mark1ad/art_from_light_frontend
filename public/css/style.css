@@ -101,6 +101,48 @@ body {
     height: auto;
     max-width: 200px; }
 
+.logincontainer {
+  display: flex;
+  justify-content: center; }
+
+.loginform {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px; }
+  .loginform form {
+    display: flex;
+    flex-direction: column;
+    text-align: center; }
+  .loginform input[type=text], .loginform input[type=password] {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 1px #0062A3;
+    -moz-box-shadow: 0 0 1px #0062A3;
+    box-shadow: 0 0 1px #0062A3;
+    padding: .5em;
+    font-size: 1em;
+    margin-bottom: 10px; }
+  .loginform input[type=submit] {
+    margin-top: 10px;
+    border: none;
+    background-color: white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 3px #5F7278;
+    -moz-box-shadow: 0 0 3px #5F7278;
+    box-shadow: 0 0 3px #5F7278;
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px;
+    cursor: pointer; }
+
 .footer {
   color: #8f8f8f;
   background-color: #1e1e1e;
