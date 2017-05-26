@@ -28,6 +28,10 @@
 
     <div ng-if="user.pictures.length !== 0"  class="user-pictures">
       <div class="username">Pictures</div>
+      <input if-ng="main.userID === main.selectedUserId"
+      type="button"
+      class="profilebutton"
+      value="Add Picture">
       <div class="gallery">
 
         <div ng-repeat="picture in user.pictures" class="thumbnail" >
@@ -37,7 +41,15 @@
               {{picture.title}}
             </div>
             <div>{{picture.description}}</div>
-            <input ng-if="main.userID === main.selectedUserId"  ng-click="user.deletePicture(picture.id, $index)" type="button" value="Delete" class="profilebutton">
+
+            <div ng-if="main.userID === main.selectedUserId" >
+              <input ng-click="user.deletePicture(picture.id, $index)"
+              type="button" value="Delete" class="profilebutton">
+
+              <input type="button" value="Edit"
+              ng-click="user.editPicture(picture.id)"
+              class="profilebutton">
+            </div>
           </div>
         </div>
       </div>
