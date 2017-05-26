@@ -5,7 +5,15 @@
   justify-content: center;
 }
 
-.user-info {
+.inner-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.user-info, .user-pictures {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -20,6 +28,10 @@
   img {
     margin-bottom: 10px;
   }
+}
+
+.user-pictures {
+  width: 100%;
 }
 
 .profilebutton {

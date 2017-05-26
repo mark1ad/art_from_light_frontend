@@ -22,6 +22,7 @@
     vm.currentUser = {};
     vm.userInfoEdit = {};
     vm.showeditform = false;
+    vm.pictures = [];
 
     vm.showPage = showPage;
     vm.startEditInfo = startEditInfo;
@@ -33,12 +34,17 @@
     function showPage(userID) {
       if (userID < 0) return;
 
+      vm.currentUser = {};
+      vm.userInfoEdit = {};
+      vm.pictures = [];
+
       $http(
         {
           method: 'GET',
           url: URL + 'users/' + userID
         }).then( function(response) {
           vm.currentUser = response.data;
+          getUserPictures(vm.currentUser.id);
         }, function(error) {
           console.log("user.showPage errors: ", error);
         }
@@ -54,15 +60,12 @@
 
       if (vm.userInfoEdit.name === undefined || vm.userInfoEdit === "") return;
 
-      console.log(vm.userInfoEdit);
-      console.log(vm.currentUser);
       $http(
         {
           method: 'PUT',
           url: URL + 'users/' + vm.currentUser.id,
           data: vm.userInfoEdit
-        })
-        .then( function(response) {
+        }).then( function(response) {
           vm.currentUser = response.data;
         }, function(error) {
           console.log('user.saveUserInfo: ', error);
@@ -74,6 +77,19 @@
     function cancelInfoEdit() {
       vm.showeditform = false;
       vm.userIndoEdit = {};
+    }
+
+    //========================================
+    // helper functions
+    function getUserPictures(userID) {
+      $http({
+        method: 'GET',
+        url: URL + 'pictures/users/' + userID
+      }).then( function(response) {
+        vm.pictures = response.data;
+      }, function( error) {
+        console.log("user.getUserPictures ", error);
+      })
     }
 
   }

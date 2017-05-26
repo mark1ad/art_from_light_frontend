@@ -161,17 +161,27 @@ body {
   display: flex;
   justify-content: center; }
 
-.user-info {
+.inner-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+
+.user-info, .user-pictures {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   margin: 30px 0; }
-  .user-info .username {
+  .user-info .username, .user-pictures .username {
     font-size: 2em;
     margin-bottom: 10px; }
-  .user-info img {
+  .user-info img, .user-pictures img {
     margin-bottom: 10px; }
+
+.user-pictures {
+  width: 100%; }
 
 .profilebutton {
   margin-top: 10px;

@@ -1,27 +1,45 @@
 <div class="user-container">
+  <div class="inner-user">
+    <div ng-if="user.showeditform === false" class="user-info">
+      <div class="username">
+        {{user.currentUser.name}}
+      </div>
 
-  <div ng-if="user.showeditform === false" class="user-info">
-    <div class="username">
-      {{user.currentUser.name}}
+      <img src={{user.currentUser.profile_url}} alt="">
+      {{user.currentUser.address}}
+
+      <button ng-if="main.userID === main.selectedUserId"
+      class='profilebutton' ng-click="user.startEditInfo()"
+      name="Edit">Edit Profile</button>
     </div>
 
-    <img src={{user.currentUser.profile_url}} alt="">
-    {{user.currentUser.address}}
+    <div ng-if="user.showeditform" class="user-info edit-info-form">
+      <form ng-submit="user.saveUserInfo()" >
+        <input type="text" ng-model="user.userInfoEdit.name" placeholder="User name" >
+        <img src={{user.currentUser.profile_url}} alt="">
+        <input type="text" ng-model="user.userInfoEdit.address" placeholder="Address">
+        <div>
+          <input class="profilebutton" type="submit" name="" value="Save">
+          <input ng-click="user.cancelInfoEdit()" type="button" value="Cancel">
+        </div>
+      </form>
+    </div>
 
-    <button ng-if="main.userID === main.selectedUserId"
-    class='profilebutton' ng-click="user.startEditInfo()"
-     name="Edit">Edit Profile</button>
-  </div>
 
-  <div ng-if="user.showeditform" class="user-info edit-info-form">
-    <form ng-submit="user.saveUserInfo()" >
-      <input type="text" ng-model="user.userInfoEdit.name" placeholder="User name" >
-      <img src={{user.currentUser.profile_url}} alt="">
-      <input type="text" ng-model="user.userInfoEdit.address" placeholder="Address">
-      <div>
-        <input class="profilebutton" type="submit" name="" value="Save">
-        <input ng-click="user.cancelInfoEdit()" type="button" value="Cancel">
+    <div ng-if="user.pictures.length !== 0"  class="user-pictures">
+      <div class="username">Pictures</div>
+      <div class="gallery">
+
+        <div ng-repeat="picture in user.pictures" class="thumbnail" >
+          <div class="thumbnail-data">
+            <img ng-click="user.showPicture()" src={{picture.url}} alt="">
+            <div ng-click="user.showPicture()" class="thumbuser">
+              {{picture.title}}
+            </div>
+            <div>{{picture.description}}</div>
+          </div>
+        </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
