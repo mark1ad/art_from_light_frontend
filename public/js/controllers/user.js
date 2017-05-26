@@ -20,8 +20,12 @@
     //**************************************
     // Controller members
     vm.currentUser = {};
+    vm.userInfoEdit = {};
+    vm.showeditform = false;
 
     vm.showPage = showPage;
+    vm.startEditInfo = startEditInfo;
+    vm.saveUserInfo = saveUserInfo;
 
     //**************************************
     // Controller functions
@@ -38,6 +42,15 @@
           console.log("user.showPage errors: ", error);
         }
       )
+    }
+
+    function startEditInfo() {
+      vm.showeditform = true;
+      vm.userInfoEdit = vm.currentUser;
+    }
+
+    function saveUserInfo() {
+      vm.showeditform = false;
     }
 
   }

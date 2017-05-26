@@ -110,7 +110,7 @@ body {
 
 .thumbuser {
   font-size: 1.2em;
-  margin-bottom: 5px; }
+  margin: 5px 0; }
 
 .thumbuser:hover {
   color: #33ccff; }
@@ -128,7 +128,7 @@ body {
   .loginform form {
     display: flex;
     flex-direction: column;
-    text-align: center; }
+    align-items: center; }
   .loginform input[type=text], .loginform input[type=password] {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -172,6 +172,48 @@ body {
     margin-bottom: 10px; }
   .user-info img {
     margin-bottom: 10px; }
+
+.profilebutton {
+  margin-top: 10px;
+  font-size: .9em; }
+
+.edit-info-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px; }
+  .edit-info-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .edit-info-form input[type=text], .edit-info-form input[type=password] {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 1px #0062A3;
+    -moz-box-shadow: 0 0 1px #0062A3;
+    box-shadow: 0 0 1px #0062A3;
+    padding: .5em;
+    font-size: 1em;
+    margin-bottom: 10px; }
+  .edit-info-form input[type=submit] {
+    margin-top: 10px;
+    border: none;
+    background-color: white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 3px #5F7278;
+    -moz-box-shadow: 0 0 3px #5F7278;
+    box-shadow: 0 0 3px #5F7278;
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px;
+    cursor: pointer; }
 
 .footer {
   color: #8f8f8f;
