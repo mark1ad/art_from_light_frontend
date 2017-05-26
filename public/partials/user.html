@@ -37,6 +37,7 @@
               {{picture.title}}
             </div>
             <div>{{picture.description}}</div>
+            <input ng-if="main.userID === main.selectedUserId"  ng-click="user.deletePicture(picture.id, $index)" type="button" value="Delete" class="profilebutton">
           </div>
         </div>
       </div>

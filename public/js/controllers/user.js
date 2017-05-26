@@ -28,6 +28,7 @@
     vm.startEditInfo = startEditInfo;
     vm.saveUserInfo = saveUserInfo;
     vm.cancelInfoEdit = cancelInfoEdit;
+    vm.deletePicture = deletePicture;
 
     //**************************************
     // Controller functions
@@ -77,6 +78,19 @@
     function cancelInfoEdit() {
       vm.showeditform = false;
       vm.userIndoEdit = {};
+    }
+
+    function deletePicture(id, index) {
+      $http({
+        method: 'DELETE',
+        url: URL + 'pictures/' + id
+      }).then( function(response) {
+        // remove from controller array
+        vm.pictures.splice(index, 1);
+      }, function(error) {
+        console.log("user.deletePicture ", error);
+      })
+
     }
 
     //========================================
