@@ -9,6 +9,8 @@ $bplarge:     1200px;
 // Colors
 $blue:        #0062A3;
 $grey:        #5F7278;
+$hovercolor:   #33ccff;
+$headerbgcolor: #f9f9f9;
 
 //******************************
 // mixins
@@ -34,61 +36,8 @@ body {
 // *****************************
 // header
 
-.header {
-  font-family: 'Quicksand', sans-serif;
-  width: 100%;
-  background-color: #f9f9f9;
-}
+@import 'header';
 
-.head-title {
-  padding: 20px 30px;
-}
-
-.title {
-  font-size: 3em;
-}
-
-.subtitle {
-  font-size: .8em;
-}
-
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  flex-direction: row;
-  font-size: .9em;
-  width: 100%;
-  border-top: 1px solid black;
-  background-color: white;
-}
-
-.navbar {
-  display: flex;
-  // flex-direction: column;
-  // align-items: flex-start;
-  // flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  font-family: 'Raleway', sans-serif;
-  padding: 10px 30px;
-  width: 100%;
-
-  .navmenu {
-    display: flex;
-    // justify-content: space-between;
-  }
-
-  .navlink {
-    margin-right: 15px;
-  }
-
-  .navbarlogin {
-    // display: flex;
-    // align-self: flex-end;
-  }
-}
 
 // ***********************
 // Home page

@@ -9,15 +9,20 @@
   <div class="nav">
     <div class="navbar">
       <div class="navmenu">
-        <div class="navlink" ng-click="main.showHome()">Home</div>
-        <div class="navlink">Photo Shoots</div>
-        <div  class="navlink">Collections</div>
+        <div class="navitem navlink" ng-click="main.showHome()">Home</div>
+        <div class="navitem navlink">Photo Shoots</div>
+        <div  class="navitem navlink">Collections</div>
       </div>
-      <div ng-if="main.userID === 0" class="navbarlogin" ng-click="main.showLogin()">
+      <div ng-if="main.userID === 0" class="navbarlogin navlink" ng-click="main.showLogin()">
         Login/register
       </div>
-      <div ng-if="main.userID !== 0" class="navbarlogin" ng-click="main.signOut()">
-        Sign Out
+      <div ng-if="main.userID !== 0" class="navbarlogin">
+        <div class="navitem navlink" ng-click="main.showUserPage(main.userID)">
+          Account
+        </div>
+        <div ng-click="main.signOut()" class="navlink">
+          Sign Out
+        </div>
       </div>
     </div>
   </div>

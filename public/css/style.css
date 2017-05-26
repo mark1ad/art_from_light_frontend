@@ -36,8 +36,14 @@ body {
   width: 100%; }
   .navbar .navmenu {
     display: flex; }
-  .navbar .navlink {
+  .navbar .navitem {
     margin-right: 15px; }
+  .navbar .navlink:hover {
+    color: #33ccff; }
+  .navbar .navbarlogin {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; }
 
 .homepagecontainer {
   display: flex;
