@@ -26,6 +26,7 @@
     vm.showPage = showPage;
     vm.startEditInfo = startEditInfo;
     vm.saveUserInfo = saveUserInfo;
+    vm.cancelInfoEdit = cancelInfoEdit;
 
     //**************************************
     // Controller functions
@@ -46,11 +47,33 @@
 
     function startEditInfo() {
       vm.showeditform = true;
-      vm.userInfoEdit = vm.currentUser;
+      Object.assign(vm.userInfoEdit, vm.currentUser);
     }
 
     function saveUserInfo() {
+
+      if (vm.userInfoEdit.name === undefined || vm.userInfoEdit === "") return;
+
+      console.log(vm.userInfoEdit);
+      console.log(vm.currentUser);
+      $http(
+        {
+          method: 'PUT',
+          url: URL + 'users/' + vm.currentUser.id,
+          data: vm.userInfoEdit
+        })
+        .then( function(response) {
+          vm.currentUser = response.data;
+        }, function(error) {
+          console.log('user.saveUserInfo: ', error);
+        })
+
       vm.showeditform = false;
+    }
+
+    function cancelInfoEdit() {
+      vm.showeditform = false;
+      vm.userIndoEdit = {};
     }
 
   }
