@@ -13,8 +13,13 @@
         <div class="navitem navlink">Photo Shoots</div>
         <div  class="navitem navlink">Collections</div>
       </div>
-      <div ng-if="main.userID === 0" class="navbarlogin navlink" ng-click="main.showLogin()">
-        Login/register
+      <div ng-if="main.userID === 0" class="navbarlogin">
+        <div ng-click="main.showLogin()" class="navlink navitem">
+          Login
+        </div>
+        <div class="navlink" ng-click="main.showRegister()">
+          Register
+        </div>
       </div>
       <div ng-if="main.userID !== 0" class="navbarlogin">
         <div class="navitem navlink" ng-click="main.showUserPage(main.userID)">

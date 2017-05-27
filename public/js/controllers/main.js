@@ -21,18 +21,24 @@
     vm.homePage = 0;
     vm.loginPage = 1;
     vm.userPage = 2;
+    vm.registerPage = 3;
 
     vm.curPage = vm.homePage;
     vm.selectedUserId = -1;
     vm.userID = 0;
     vm.userName = "";
     vm.showLogin = showLogin;
+    vm.showRegister = showRegister;
     vm.signOut = signOut;
     vm.showHome = showHome;
     vm.showUserPage = showUserPage;
 
     function showLogin() {
       vm.curPage = vm.loginPage;
+    }
+
+    function showRegister() {
+      vm.curPage = vm.registerPage;
     }
 
     function showHome() {
