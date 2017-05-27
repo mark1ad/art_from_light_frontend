@@ -10,6 +10,7 @@
     <script src="/js/controllers/home.js" charset="utf-8"></script>
     <script src="/js/controllers/login.js" charset="utf-8"></script>
     <script src="/js/controllers/user.js" charset="utf-8"></script>
+    <script src="/js/controllers/register.js" charset="utf-8"></script>
 
 
    <!-- fonts and styles -->
@@ -39,6 +40,11 @@
     <div  ng-if="main.curPage === main.loginPage"
       ng-include="'partials/login.html'"
       ng-controller="LoginController as login"></div>
+
+    <!-- Register page -->
+    <div ng-if="main.curPage === main.registerPage"
+      ng-include="'partials/register.html'"
+      ng-controller="RegisterController as register"></div>
 
     <!-- footer -->
     <div ng-include="'partials/footer.html'">
