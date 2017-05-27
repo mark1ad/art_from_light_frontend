@@ -3,6 +3,15 @@
   <div class="loginform">
     <h2>Register for Art From Light</h2>
 
+    <form ng-submit="register.register(main)">
+      <input type="text" ng-model="register.user.username", placeholder="User name">
+      <input type="text" ng-model="register.user.name" placeholder="Full Name">
+      <input type="text" ng-model="register.user.address" placeholder="Address">
+      <input type="password" ng-model="register.user.password" placeholder="Password">
+
+      <input type="submit" value="Register">
+
+    </form>
   </div>
 
 </div> <!-- end of logincontainer -->
