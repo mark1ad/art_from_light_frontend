@@ -1,5 +1,7 @@
 <div class="user-container">
   <div class="inner-user">
+
+    <!-- Photographer's bio -->
     <div ng-if="user.showeditform === false" class="user-info">
       <div class="username">
         {{user.currentUser.name}}
@@ -13,6 +15,7 @@
       name="Edit">Edit Profile</button>
     </div>
 
+    <!-- Edit photographer's bio -->
     <div ng-if="user.showeditform" class="user-info edit-info-form">
       <form ng-submit="user.saveUserInfo()" >
         <input type="text" ng-model="user.userInfoEdit.name" placeholder="User name" >
@@ -25,13 +28,40 @@
       </form>
     </div>
 
+    <!-- Collections gallery -->
+    <div ng-if="user.collections.length !== 0" class="user-gallery">
+      <div class="username">Collections</div>
 
-    <div ng-if="user.pictures.length !== 0"  class="user-pictures">
-      <div class="username">Pictures</div>
+      <!-- Add collection button -->
       <input if-ng="main.userID === main.selectedUserId"
-      type="button"
-      class="profilebutton"
-      value="Add Picture">
+        type="button"
+        class="profilebutton"
+        value="Add Collection">
+
+      <!-- Inner collection gallery -->
+      <div class="gallery">
+        <!-- Thumbnail -->
+        <div ng-repeat="collection in user.collections" class="thumbnail">
+          <div class="thumbnail-data">
+            <div class="thumbuser">{{collection.title}}</div>
+            <div>{{collection.description}}</div>
+          </div>
+        </div> <!-- End of Thumbnail -->
+      </div> <!-- end of inner collection gallery -->
+
+    </div> <!-- End of collection gallery -->
+
+    <!-- Picture gallery -->
+    <div ng-if="user.pictures.length !== 0"  class="user-gallery">
+      <div class="username">Pictures</div>
+
+      <!-- Add picture button -->
+      <input if-ng="main.userID === main.selectedUserId"
+        type="button"
+        class="profilebutton"
+        value="Add Picture">
+
+      <!-- Picture gallery -->
       <div class="gallery">
 
         <div ng-repeat="picture in user.pictures" class="thumbnail" >
@@ -51,8 +81,10 @@
               class="profilebutton">
             </div>
           </div>
-        </div>
-      </div>
+        </div> <!-- End thumbnail -->
+      </div> <!-- End picture gallery -->
     </div>
+
+
   </div>
 </div>

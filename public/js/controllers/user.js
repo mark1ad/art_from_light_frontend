@@ -23,6 +23,7 @@
     vm.userInfoEdit = {};
     vm.showeditform = false;
     vm.pictures = [];
+    vm.collections = [];
 
     vm.showPage = showPage;
     vm.startEditInfo = startEditInfo;
@@ -38,6 +39,7 @@
       vm.currentUser = {};
       vm.userInfoEdit = {};
       vm.pictures = [];
+      vm.collections = [];
 
       $http(
         {
@@ -101,8 +103,20 @@
         url: URL + 'pictures/users/' + userID
       }).then( function(response) {
         vm.pictures = response.data;
+        getUserCollections(userID);
       }, function( error) {
         console.log("user.getUserPictures ", error);
+      })
+    }
+
+    function getUserCollections(userID) {
+      $http({
+        method: 'GET',
+        url: URL + 'collections/users/' + userID
+      }).then( function(response) {
+        vm.collections = response.data;
+      }, function(error) {
+        console.log("user.getUserCollections ", error);
       })
     }
 
