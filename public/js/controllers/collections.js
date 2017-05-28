@@ -20,9 +20,27 @@
       //******************************
       // Controller members
 
+      vm.collections = [];
+      vm.initPage = initPage;
+
+      //**************************
+      // Controller functions
+
+      function initPage() {
+        vm.collections  = [];
+
+        $http({
+          method: 'GET',
+          url: URL + 'collections'
+        }).then( function(response) {
+          vm.collections = response.data;
+        }, function(error) {
+          console.log("collections.initPage: ", error);
+        })
+      }
 
 
-    }
+    } // end function CollectionsController
 
 
 })();

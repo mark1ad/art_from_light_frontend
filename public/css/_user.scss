@@ -1,19 +1,6 @@
-// For the user display pagehelp
+// For the user display page
 
-.user-container {
-  display: flex;
-  justify-content: center;
-}
-
-.inner-user {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.user-info, .user-gallery {
+.user-info {
   display: flex;
   justify-content: center;
   flex-direction: column;

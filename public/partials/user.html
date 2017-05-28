@@ -1,5 +1,5 @@
-<div class="user-container">
-  <div class="inner-user">
+<div class="container">
+  <div class="inner-container">
 
     <!-- Photographer's bio -->
     <div ng-if="user.showeditform === false" class="user-info">
@@ -29,7 +29,7 @@
     </div>
 
     <!-- Collections gallery -->
-    <div ng-if="user.collections.length !== 0" class="user-gallery">
+    <div ng-if="user.collections.length !== 0" class="gallery-container">
       <div class="username">Collections</div>
 
       <!-- Add collection button -->
@@ -52,8 +52,8 @@
     </div> <!-- End of collection gallery -->
 
     <!-- Picture gallery -->
-    <div ng-if="user.pictures.length !== 0"  class="user-gallery">
-      <div class="username">Pictures</div>
+    <div ng-if="user.pictures.length !== 0"  class="gallery-container">
+      <div class="myheader">Pictures</div>
 
       <!-- Add picture button -->
       <input ng-if="main.userID === main.selectedUserId"

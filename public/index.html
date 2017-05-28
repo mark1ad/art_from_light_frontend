@@ -40,7 +40,8 @@
     <!-- Collections page -->
     <div ng-if="main.curPage === main.collectionsPage"
       ng-controller="CollectionsController as collection"
-      ng-include="'partials/collections.html'"></div>
+      ng-include="'partials/collections.html'"
+      ng-init="collection.initPage()"></div>
 
     <!-- login page -->
     <div  ng-if="main.curPage === main.loginPage"
