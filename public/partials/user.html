@@ -44,7 +44,6 @@
         <div ng-repeat="collection in user.collections" class="thumbnail">
           <div class="thumbnail-data">
             <div class="thumbuser">{{collection.title}}</div>
-            <div>{{collection.description}}</div>
           </div>
         </div> <!-- End of Thumbnail -->
       </div> <!-- end of inner collection gallery -->
@@ -70,7 +69,6 @@
             <div ng-click="user.showPicture()" class="thumbuser">
               {{picture.title}}
             </div>
-            <div>{{picture.description}}</div>
 
             <div ng-if="main.userID === main.selectedUserId" >
               <input ng-click="user.deletePicture(picture.id, $index)"

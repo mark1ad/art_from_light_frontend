@@ -4,14 +4,13 @@
 
     <div class="gallery-container">
       <div class="gallery">
-
         <div ng-repeat="photo in photos.photos" class="thumbnail">
           <div class="thumbnail-data">
+
             <img ng-click="main.showUserPage(user.id)"
             src={{photo.url}} alt="">
 
             <div class="thumbuser">{{photo.title}}</div>
-            <div>{{photo.description}}</div>
 
           </div> <!-- end thumbnail-data -->
         </div> <!-- end thumbnail -->
