@@ -65,8 +65,8 @@
 
         <div ng-repeat="picture in user.pictures" class="thumbnail" >
           <div class="thumbnail-data">
-            <img ng-click="user.showPicture()" src={{picture.url}} alt="">
-            <div ng-click="user.showPicture()" class="thumbuser">
+            <img ng-click="main.showPhotoModal(picture.id)" src={{picture.url}} alt="">
+            <div ng-click="main.showPhotoModal(picture.id)" class="thumbuser">
               {{picture.title}}
             </div>
 

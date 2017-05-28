@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0; }
 
-.container {
+.container, .modal {
   display: flex;
   justify-content: center; }
 
@@ -268,15 +268,23 @@ body {
   /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 95vh;
-  /* Could be more or less, depending on screen size */ }
+  width: 90%;
+  height: 70vh; }
   .modal-content img {
-    max-height: 30vh; }
+    max-height: 50vh; }
 
 .close {
+  display: flex;
+  align-self: flex-end;
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */
