@@ -33,7 +33,7 @@
       <div class="username">Collections</div>
 
       <!-- Add collection button -->
-      <input if-ng="main.userID === main.selectedUserId"
+      <input ng-if="main.userID === main.selectedUserId"
         type="button"
         class="profilebutton"
         value="Add Collection">
@@ -56,7 +56,7 @@
       <div class="username">Pictures</div>
 
       <!-- Add picture button -->
-      <input if-ng="main.userID === main.selectedUserId"
+      <input ng-if="main.userID === main.selectedUserId"
         type="button"
         class="profilebutton"
         value="Add Picture">

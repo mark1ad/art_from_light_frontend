@@ -11,7 +11,8 @@
       <div class="navmenu">
         <div class="navitem navlink" ng-click="main.showHome()">Photographers</div>
         <div class="navitem navlink">Photo Shoots</div>
-        <div  class="navitem navlink">Collections</div>
+        <div ng-click="main.showCollectionsPage()"
+          class="navitem navlink">Collections</div>
       </div>
       <div ng-if="main.userID === 0" class="navbarlogin">
         <div ng-click="main.showLogin()" class="navlink navitem">

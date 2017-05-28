@@ -11,6 +11,7 @@
     <script src="/js/controllers/login.js" charset="utf-8"></script>
     <script src="/js/controllers/user.js" charset="utf-8"></script>
     <script src="/js/controllers/register.js" charset="utf-8"></script>
+    <script src="/js/controllers/collections.js" charset="utf-8"></script>
 
 
    <!-- fonts and styles -->
@@ -35,6 +36,11 @@
       ng-controller="UserPageController as user"
       ng-include="'partials/user.html'"
       ng-init="user.showPage(main.selectedUserId)"></div>
+
+    <!-- Collections page -->
+    <div ng-if="main.curPage === main.collectionsPage"
+      ng-controller="CollectionsController as collection"
+      ng-include="'partials/collections.html'"></div>
 
     <!-- login page -->
     <div  ng-if="main.curPage === main.loginPage"
