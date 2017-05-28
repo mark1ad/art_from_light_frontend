@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: center; }
 
-.inner-container {
+.inner-container, .modal-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -262,14 +262,21 @@ body {
   /* Black w/ opacity */ }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: black;
+  color: #8f8f8f;
   margin: 15% auto;
   /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 20vh;
+  width: 95vh;
   /* Could be more or less, depending on screen size */ }
   .modal-content img {
-    max-height: 20vh; }
+    max-height: 30vh; }
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */

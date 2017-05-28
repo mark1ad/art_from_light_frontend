@@ -1,0 +1,10 @@
+<!-- For showing full sized picture -->
+<div class="modal container">
+  <div class="modal-content">
+    <span ng-click="main.closePhotoModal()" class="close">&times;</span>
+    <img src={{main.selectedPhoto.url}} alt="">
+
+    <div>{{main.selectedPhoto.title}}</div>
+    <div>{{main.selectedPhoto.user.name}}</div>
+  </div>
+</div> <!-- end modal container -->

@@ -38,6 +38,11 @@
       ng-include="'partials/user.html'"
       ng-init="user.showPage(main.selectedUserId)"></div>
 
+    <!-- modal for showing full sized picture -->
+    <div ng-if="main.modalVisable"
+      ng-include="'partials/photoModal.html'"
+      ></div>
+
     <!-- Collections page -->
     <div ng-if="main.curPage === main.collectionsPage"
       ng-controller="CollectionsController as collection"

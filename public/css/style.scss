@@ -11,6 +11,8 @@ $blue:        #0062A3;
 $grey:        #5F7278;
 $hovercolor:   #33ccff;
 $headerbgcolor: #f9f9f9;
+$greyTextColor: #8f8f8f;
+$lightBlack: #1e1e1e;
 
 //******************************
 // mixins
@@ -127,26 +129,4 @@ body {
 
 //*********************************
 // modal
-.modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 20vh; /* Could be more or less, depending on screen size */
-
-    img {
-      max-height: 20vh;
-    }
-}
+@import 'photoModal'

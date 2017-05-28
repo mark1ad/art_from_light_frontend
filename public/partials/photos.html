@@ -7,10 +7,10 @@
         <div ng-repeat="photo in photos.photos" class="thumbnail">
           <div class="thumbnail-data">
 
-            <img ng-click="photos.showPhoto(photo.id)"
+            <img ng-click="main.showPhotoModal(photo.id)"
             src={{photo.url}} alt="">
 
-            <div ng-click="photos.showPhoto(photo.id)" class="thumbuser">{{photo.title}}</div>
+            <div ng-click="main.showPhotoModal(photo.id)" class="thumbuser">{{photo.title}}</div>
 
           </div> <!-- end thumbnail-data -->
         </div> <!-- end thumbnail -->
@@ -20,12 +20,3 @@
 
   </div> <!-- end inner-container -->
 </div> <!-- end container -->
-
-<div ng-if="photos.showFullSize" class="modal">
-  <div class="modal-content">
-    <img src={{photos.selectedPhoto.url}} alt="">
-
-    {{photos.selectedPhoto.title}}
-    {{photos.selectedPhoto.user.name}}
-  </div>
-</div>

@@ -24,7 +24,6 @@
       vm.selectedPhoto = {};
       vm.showFullSize = false;
       vm.initPage = initPage;
-      vm.showPhoto = showPhoto;
 
       //*****************************
       // Controller functions
@@ -39,20 +38,6 @@
           vm.photos = response.data;
         }, function( error) {
           console.log("photos.initPage: ", error);
-        })
-      }
-
-      function showPhoto(id) {
-        vm.selectedPhoto = {};
-
-        $http({
-          method: 'GET',
-          url: URL + 'pictures/' + id
-        }).then(function(response) {
-          vm.selectedPhoto = response.data;
-          vm.showFullSize = true;
-        }, function(error) {
-          console.log("photos.showPHoto: ", error);
         })
       }
 
