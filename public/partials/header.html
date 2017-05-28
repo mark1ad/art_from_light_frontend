@@ -8,12 +8,17 @@
 
   <div class="nav">
     <div class="navbar">
+
       <div class="navmenu">
         <div class="navitem navlink" ng-click="main.showHome()">Photographers</div>
         <div class="navitem navlink">Photo Shoots</div>
         <div ng-click="main.showCollectionsPage()"
           class="navitem navlink">Collections</div>
+        <div ng-click="main.showPhotographs()" class="navitem navlink">
+          Photographs
+        </div>
       </div>
+
       <div ng-if="main.userID === 0" class="navbarlogin">
         <div ng-click="main.showLogin()" class="navlink navitem">
           Login
@@ -22,6 +27,7 @@
           Register
         </div>
       </div>
+
       <div ng-if="main.userID !== 0" class="navbarlogin">
         <div class="navitem navlink" ng-click="main.showUserPage(main.userID)">
           Account
@@ -30,6 +36,7 @@
           Sign Out
         </div>
       </div>
+
     </div>
   </div>
 </div>

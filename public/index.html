@@ -12,6 +12,7 @@
     <script src="/js/controllers/user.js" charset="utf-8"></script>
     <script src="/js/controllers/register.js" charset="utf-8"></script>
     <script src="/js/controllers/collections.js" charset="utf-8"></script>
+    <script src="/js/controllers/photos.js" charset="utf-8"></script>
 
 
    <!-- fonts and styles -->
@@ -42,6 +43,11 @@
       ng-controller="CollectionsController as collection"
       ng-include="'partials/collections.html'"
       ng-init="collection.initPage()"></div>
+
+    <div ng-if="main.curPage === main.photosPage"
+      ng-controller="PhotosController as photos"
+      ng-include="'partials/photos.html'"
+      ng-init="photos.initPage()"></div>
 
     <!-- login page -->
     <div  ng-if="main.curPage === main.loginPage"
