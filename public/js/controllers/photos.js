@@ -19,6 +19,25 @@
 
       //******************************
       // Controller members
-      
+
+      vm.photos = [];
+      vm.initPage = initPage;
+
+      //*****************************
+      // Controller functions
+
+      function initPage() {
+        vm.photos = [];
+
+        $http({
+          method: 'GET',
+          url: URL + 'pictures'
+        }).then(function(response) {
+          vm.photos = response.data;
+        }, function( error) {
+          console.log("photos.initPage: ", error);
+        })
+      }
+
   }
 })();
