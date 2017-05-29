@@ -55,10 +55,29 @@
       <div class="myheader">Pictures</div>
 
       <!-- Add picture button -->
-      <input ng-if="main.userID === main.selectedUserId"
+      <input ng-if="main.userID === main.selectedUserId && user.addPicFormVisible === false"
+        ng-click="user.showAddPicForm(true)"
         type="button"
         class="profilebutton"
         value="Add Picture">
+
+      <!-- Add a new picture -->
+      <div class="edit-info-form" ng-if="user.addPicFormVisible">
+        Add New Picture
+        <form ng-submit="user.addPicture()" >
+
+          <input type="text" placeholder="Title">
+          <textarea rows="5" placeholder="Description"></textarea>
+          <input type="text" placeholder="URL">
+
+          <div >
+            <input type="submit" value="Save">
+            <input ng-click="user.showAddPicForm(false)" type="button" value="Cancel">
+          </div>
+
+        </form>
+      </div>  <!-- end add new picture -->
+
 
       <!-- Picture gallery -->
       <div class="gallery">

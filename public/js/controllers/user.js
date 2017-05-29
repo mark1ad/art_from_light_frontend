@@ -24,12 +24,16 @@
     vm.showeditform = false;
     vm.pictures = [];
     vm.collections = [];
+    vm.addPicFormVisible = false;
+    vm.newPicture = {};
 
     vm.showPage = showPage;
     vm.startEditInfo = startEditInfo;
     vm.saveUserInfo = saveUserInfo;
     vm.cancelInfoEdit = cancelInfoEdit;
     vm.deletePicture = deletePicture;
+    vm.showAddPicForm = showAddPicForm;
+    vm.addPicture = addPicture;
 
     //**************************************
     // Controller functions
@@ -93,6 +97,16 @@
         console.log("user.deletePicture ", error);
       })
 
+    }
+
+    function showAddPicForm(value) {
+      vm.addPicFormVisible = value;
+    }
+
+    // Add a new picture to the db
+    function addPicture() {
+      console.log("addpicture");
+      vm.showAddPicForm(false);
     }
 
     //========================================

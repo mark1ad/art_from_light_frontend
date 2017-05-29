@@ -212,7 +212,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; }
-  .edit-info-form input[type=text], .edit-info-form input[type=password] {
+  .edit-info-form input[type=text], .edit-info-form input[type=password], .edit-info-form textarea {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
@@ -223,6 +223,10 @@ body {
     padding: .5em;
     font-size: 1em;
     margin-bottom: 10px; }
+  .edit-info-form textarea {
+    width: 100%; }
+  .edit-info-form input[type=textarea] {
+    rows: 5; }
   .edit-info-form input[type=submit], .edit-info-form input[type=button] {
     margin-top: 10px;
     border: none;
