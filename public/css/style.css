@@ -258,20 +258,26 @@ body {
   /* Enable scroll if needed */
   background-color: black;
   /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.85);
   /* Black w/ opacity */ }
 
 .modal-content {
   background-color: black;
   color: #8f8f8f;
-  margin: 15% auto;
-  /* 15% from the top and centered */
+  margin: 5% auto;
   padding: 20px;
+  padding-top: 0px;
   border: 1px solid #888;
   width: 90%;
   height: 70vh; }
   .modal-content img {
     max-height: 50vh; }
+
+.modalFields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 .close {
   display: flex;

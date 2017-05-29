@@ -4,8 +4,24 @@
     <span ng-click="main.closePhotoModal()" class="close">&times;</span>
     <img src={{main.selectedPhoto.url}} alt="">
 
-    <div>{{main.selectedPhoto.title}}</div>
-    <div>{{main.selectedPhoto.user.name}}</div>
-    <div>{{main.selectedPhoto.description}}
+    <!-- Not editing -->
+    <div ng-if="main.modalEdit === false" class="modalFields">
+      <div>{{main.selectedPhoto.title}}</div>
+      <div>{{main.selectedPhoto.user.name}}</div>
+      <div>{{main.selectedPhoto.description}}</div>
+    </div>
+
+    <!-- Editing picture -->
+    <div ng-if="main.modalEdit" class="modalFields edit-info-form">
+      <form class="modalFields" ng-submit="main.savePhotoModal()" >
+
+        <input type="text" ng-model="main.selectedPhoto.title" placeholder="Title">
+
+        <input type="text" ng-model="main.selectedPhoto.description" placeholder="Description">
+
+        <input type="submit" class="profileButton" value="Save">
+
+      </form>
+    </div>
   </div>
 </div> <!-- end modal container -->

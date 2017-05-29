@@ -27,6 +27,7 @@
 
     // For modal that displays full sized picture
     vm.modalVisable = false;
+    vm.modalEdit = false;
     vm.selectedPhoto = {};
 
     vm.curPage = vm.homePage;
@@ -42,6 +43,7 @@
     vm.showPhotographs =  showPhotographs;
     vm.showPhotoModal = showPhotoModal;
     vm.closePhotoModal = closePhotoModal;
+    vm.savePhotoModal = savePhotoModal;
 
     function showLogin() {
       vm.curPage = vm.loginPage;
@@ -74,8 +76,9 @@
       vm.curPage = vm.photosPage;
     }
 
-    function showPhotoModal(id) {
+    function showPhotoModal(id, editMode = false) {
       vm.selectedPhoto = {};
+      vm.modalEdit = editMode;
 
       $http({
         method: 'GET',
@@ -91,6 +94,21 @@
 
     function closePhotoModal() {
       vm.modalVisable = false;
+    }
+
+    function savePhotoModal() {
+      if (vm.selectedPhoto.title === undefined || vm.selectedPhoto.title === "") return;
+
+      $http({
+        method: 'PUT',
+        url: URL + 'pictures/' + vm.selectedPhoto.id,
+        data: vm.selectedPhoto
+      }).then( function(response) {
+        vm.selectedPhoto =  {};
+        vm.closePhotoModal();
+      }, function(error) {
+        console.log("main.savePhotoModal: ", error);
+      })
     }
   }
 })();
