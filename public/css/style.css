@@ -275,7 +275,13 @@ body {
   width: 90%;
   height: 70vh; }
   .modal-content img {
-    max-height: 50vh; }
+    max-height: 50vh;
+    max-width: 90%;
+    margin-bottom: 20px; }
+
+.modalBigText {
+  font-size: 1.5em;
+  margin-bottom: 10px; }
 
 .modalFields {
   display: flex;

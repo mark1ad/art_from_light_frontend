@@ -64,11 +64,11 @@
       <!-- Add a new picture -->
       <div class="edit-info-form" ng-if="user.addPicFormVisible">
         Add New Picture
-        <form ng-submit="user.addPicture()" >
+        <form ng-submit="user.addPicture(main.userID)" >
 
-          <input type="text" placeholder="Title">
-          <textarea rows="5" placeholder="Description"></textarea>
-          <input type="text" placeholder="URL">
+          <input ng-model="user.newPicture.title" type="text" placeholder="Title">
+          <textarea ng-model="user.newPicture.description" rows="5" placeholder="Description"></textarea>
+          <input ng-model="user.newPicture.url" type="text" placeholder="URL">
 
           <div >
             <input type="submit" value="Save">

@@ -6,8 +6,8 @@
 
     <!-- Not editing -->
     <div ng-if="main.modalEdit === false" class="modalFields">
-      <div>{{main.selectedPhoto.title}}</div>
-      <div>{{main.selectedPhoto.user.name}}</div>
+      <div class="modalBigText">{{main.selectedPhoto.title}}</div>
+      <div class="modalBigText">{{main.selectedPhoto.user.name}}</div>
       <div>{{main.selectedPhoto.description}}</div>
     </div>
 
@@ -15,9 +15,9 @@
     <div ng-if="main.modalEdit" class="modalFields edit-info-form">
       <form class="modalFields" ng-submit="main.savePhotoModal()" >
 
-        <input type="text" ng-model="main.selectedPhoto.title" placeholder="Title">
+        <input  type="text" ng-model="main.selectedPhoto.title" placeholder="Title">
 
-        <input type="text" ng-model="main.selectedPhoto.description" placeholder="Description">
+        <input  type="text" ng-model="main.selectedPhoto.description" placeholder="Description">
 
         <input type="submit" class="profileButton" value="Save">
 

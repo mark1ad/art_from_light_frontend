@@ -104,9 +104,23 @@
     }
 
     // Add a new picture to the db
-    function addPicture() {
-      console.log("addpicture");
-      vm.showAddPicForm(false);
+    function addPicture(userID) {
+
+      if (vm.newPicture.url === undefined || vm.newPicture.url === "") return;
+
+      vm.newPicture.user_id = userID;
+
+      $http({
+        method: 'POST',
+        url: URL + '/pictures',
+        data: vm.newPicture
+      }).then( function(response) {
+        vm.pictures.unshift( response.data);
+        vm.newPicture = {};
+        vm.showAddPicForm(false);
+      }, function(error) {
+        console.log("user.addPicture: ", error);
+      })
     }
 
     //========================================
