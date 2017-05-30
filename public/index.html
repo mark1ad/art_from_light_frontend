@@ -49,6 +49,12 @@
       ng-include="'partials/collections.html'"
       ng-init="collection.initPage()"></div>
 
+    <!-- Collection page - shows a single collection  -->
+    <div ng-if="main.curPage === main.collectionPage"
+      ng-include="'partials/collection.html'"
+      ></div>
+
+    <!-- photos page -->
     <div ng-if="main.curPage === main.photosPage"
       ng-controller="PhotosController as photos"
       ng-include="'partials/photos.html'"

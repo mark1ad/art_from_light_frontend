@@ -24,6 +24,7 @@
     vm.registerPage = 3;
     vm.collectionsPage = 4;
     vm.photosPage = 5;
+    vm.collectionPage = 6;
 
     // For modal that displays full sized picture
     vm.modalVisable = false;
@@ -39,6 +40,7 @@
     vm.signOut = signOut;
     vm.showHome = showHome;
     vm.showUserPage = showUserPage;
+    vm.showCollectionPage = showCollectionPage;
     vm.showCollectionsPage = showCollectionsPage;
     vm.showPhotographs =  showPhotographs;
     vm.showPhotoModal = showPhotoModal;
@@ -68,6 +70,10 @@
       vm.selectedUserId = id;
     }
 
+    function showCollectionPage() {
+      vm.curPage = vm.collectionPage;
+    }
+
     function showCollectionsPage() {
       vm.curPage = vm.collectionsPage;
     }
@@ -84,7 +90,7 @@
         method: 'GET',
         url: URL + 'pictures/' + id
       }).then(function(response) {
-        vm.selectedPhoto = response.data;
+        Object.assign(vm.selectedPhoto, response.data);
         vm.modalVisable = true;
       }, function(error) {
         console.log("photos.showPHoto: ", error);
