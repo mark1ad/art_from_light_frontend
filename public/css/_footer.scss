@@ -1,5 +1,19 @@
+#main {
+  overflow: auto;
+  padding-bottom: 40px; /* must be same height as the footer */
+}
+
+
 .footer {
   color: $greyTextColor;
   background-color: $lightBlack;
-  padding: 20px;
+  height: 60px;
+
+  position: relative;
+  margin-top: -60px; /* negative value of footer height */
+  height: 60px;
+  clear: both;
+
+  display: flex;
+  justify-content: flex-start;
 }

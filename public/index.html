@@ -21,6 +21,8 @@
   </head>
 
   <body ng-controller="MainController as main">
+    <div id="wrap">
+    <div id="main">
 
     <!-- Header and nav  bar -->
     <div
@@ -70,6 +72,8 @@
       ng-include="'partials/register.html'"
       ng-controller="RegisterController as register"></div>
 
+    </div> <!-- end of main -->
+    </div> <!-- end of wrap -->
     <!-- footer -->
     <div ng-include="'partials/footer.html'">
 
