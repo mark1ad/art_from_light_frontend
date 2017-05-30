@@ -7,12 +7,17 @@
 
         <div ng-repeat="collection in collection.collections" class="thumbnail">
           <div class="thumbnail-data">
-            <img ng-click="main.showCollectionPage()" src={{collection.url}} alt="">
-            <div ng-click="main.showCollectionPage()" class="thumbuser">{{collection.title}}</div>
+
+            <img ng-click="main.showCollectionPage(collection)" src={{collection.url}} alt="">
+
+            <div ng-click="main.showCollectionPage(collection)" class="thumbuser">{{collection.title}}</div>
+
             <div ng-click="main.showUserPage(collection.user_id)" class="thumbuser" >
               {{collection.user.name}}
             </div>
+
             <div>{{collection.description}}</div>
+            
           </div> <!-- end thumbnail-data -->
         </div> <!-- end thumbnail -->
 

@@ -1,83 +1,85 @@
 <!DOCTYPE html>
 <html ng-app="artFromLightApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Art From Light</title>
+<head>
+  <meta charset="utf-8">
+  <title>Art From Light</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
-    <script src="/js/app.js" charset="utf-8"></script>
-    <script src="/js/controllers/main.js" charset="utf-8"></script>
-    <script src="/js/controllers/home.js" charset="utf-8"></script>
-    <script src="/js/controllers/login.js" charset="utf-8"></script>
-    <script src="/js/controllers/user.js" charset="utf-8"></script>
-    <script src="/js/controllers/register.js" charset="utf-8"></script>
-    <script src="/js/controllers/collections.js" charset="utf-8"></script>
-    <script src="/js/controllers/photos.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+  <script src="/js/app.js" charset="utf-8"></script>
+  <script src="/js/controllers/main.js" charset="utf-8"></script>
+  <script src="/js/controllers/home.js" charset="utf-8"></script>
+  <script src="/js/controllers/login.js" charset="utf-8"></script>
+  <script src="/js/controllers/user.js" charset="utf-8"></script>
+  <script src="/js/controllers/register.js" charset="utf-8"></script>
+  <script src="/js/controllers/collections.js" charset="utf-8"></script>
+  <script src="/js/controllers/collection.js" charset="utf-8"></script>
+  <script src="/js/controllers/photos.js" charset="utf-8"></script>
 
 
-   <!-- fonts and styles -->
+  <!-- fonts and styles -->
   <link href="https://fonts.googleapis.com/css?family=Nunito|Quicksand|Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
-  <body ng-controller="MainController as main">
-    <div id="wrap">
+<body ng-controller="MainController as main">
+  <div id="wrap">
     <div id="main">
 
-    <!-- Header and nav  bar -->
-    <div
+      <!-- Header and nav  bar -->
+      <div
       ng-include="'partials/header.html'"></div>
 
-    <!-- home page  -->
-    <div ng-if="main.curPage === main.homePage" ng-controller="HomeController as home"
-    ng-include="'partials/home.html'"
-    ng-init='home.getAllUsers()'></div>
+      <!-- home page  -->
+      <div ng-if="main.curPage === main.homePage" ng-controller="HomeController as home"
+      ng-include="'partials/home.html'"
+      ng-init='home.getAllUsers()'></div>
 
-    <!-- User page -->
-    <div
+      <!-- User page -->
+      <div
       ng-if="main.curPage === main.userPage"
       ng-controller="UserPageController as user"
       ng-include="'partials/user.html'"
       ng-init="user.showPage(main.selectedUserId)"></div>
 
-    <!-- modal for showing full sized picture -->
-    <div ng-if="main.modalVisable"
+      <!-- modal for showing full sized picture -->
+      <div ng-if="main.modalVisable"
       ng-include="'partials/photoModal.html'"
       ></div>
 
-    <!-- Collections page -->
-    <div ng-if="main.curPage === main.collectionsPage"
+      <!-- Collections page -->
+      <div ng-if="main.curPage === main.collectionsPage"
       ng-controller="CollectionsController as collection"
       ng-include="'partials/collections.html'"
       ng-init="collection.initPage()"></div>
 
-    <!-- Collection page - shows a single collection  -->
-    <div ng-if="main.curPage === main.collectionPage"
+      <!-- Collection page - shows a single collection  -->
+      <div ng-if="main.curPage === main.collectionPage"
+      ng-controller="CollectionController as collection"
       ng-include="'partials/collection.html'"
+      ng-init="collection.initPage(main.selectedCollection)"
       ></div>
 
-    <!-- photos page -->
-    <div ng-if="main.curPage === main.photosPage"
+      <!-- photos page -->
+      <div ng-if="main.curPage === main.photosPage"
       ng-controller="PhotosController as photos"
       ng-include="'partials/photos.html'"
       ng-init="photos.initPage()"></div>
 
-    <!-- login page -->
-    <div  ng-if="main.curPage === main.loginPage"
+      <!-- login page -->
+      <div  ng-if="main.curPage === main.loginPage"
       ng-include="'partials/login.html'"
       ng-controller="LoginController as login"></div>
 
-    <!-- Register page -->
-    <div ng-if="main.curPage === main.registerPage"
+      <!-- Register page -->
+      <div ng-if="main.curPage === main.registerPage"
       ng-include="'partials/register.html'"
       ng-controller="RegisterController as register"></div>
 
     </div> <!-- end of main -->
-    </div> <!-- end of wrap -->
-    <!-- footer -->
-    <div ng-include="'partials/footer.html'">
+  </div> <!-- end of wrap -->
 
-    </div>
+  <!-- footer -->
+  <div ng-include="'partials/footer.html'"></div>
 
-  </body>
+</body>
 </html>

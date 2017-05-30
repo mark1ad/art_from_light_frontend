@@ -33,6 +33,7 @@
 
     vm.curPage = vm.homePage;
     vm.selectedUserId = -1;
+    vm.selectedCollection = {};
     vm.userID = 0;
     vm.userName = "";
     vm.showLogin = showLogin;
@@ -70,8 +71,9 @@
       vm.selectedUserId = id;
     }
 
-    function showCollectionPage() {
+    function showCollectionPage(collection) {
       vm.curPage = vm.collectionPage;
+      vm.selectedCollection = collection;
     }
 
     function showCollectionsPage() {

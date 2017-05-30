@@ -251,6 +251,9 @@ body {
     padding: 10px;
     cursor: pointer; }
 
+.collContainer {
+  margin-top: 50px; }
+
 #main {
   overflow: auto;
   padding-bottom: 40px;
