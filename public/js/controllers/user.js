@@ -1,4 +1,4 @@
-(function() {
+ (function() {
 
   angular
     .module('artFromLightApp')
@@ -26,6 +26,8 @@
     vm.collections = [];
     vm.addPicFormVisible = false;
     vm.newPicture = {};
+    vm.showEditModal = false;
+    vm.newCollection = {};
 
     vm.showPage = showPage;
     vm.startEditInfo = startEditInfo;
@@ -34,6 +36,8 @@
     vm.deletePicture = deletePicture;
     vm.showAddPicForm = showAddPicForm;
     vm.addPicture = addPicture;
+    vm.showAddCollForm = showAddCollForm;
+    vm.saveNewCollection = saveNewCollection;
 
     //**************************************
     // Controller functions
@@ -101,6 +105,29 @@
 
     function showAddPicForm(value) {
       vm.addPicFormVisible = value;
+    }
+
+    function showAddCollForm(value) {
+      vm.newCollection = {};
+      vm.showEditModal = value;
+    }
+
+    function saveNewCollection() {
+      if (vm.newCollection.title === undefined || vm.newCollection.title === "") return;
+
+      vm.newCollection.user_id = vm.currentUser.id;
+
+      $http({
+        method: 'POST',
+        url: URL + '/collections',
+        data: vm.newCollection
+      }).then( function (response) {
+        vm.collections.unshift( response.data);
+        vm.newCollection = {};
+        vm.showAddCollForm(false);
+      }, function(error) {
+        console.log("user.saveNewCollection: ", error);
+      })
     }
 
     // Add a new picture to the db

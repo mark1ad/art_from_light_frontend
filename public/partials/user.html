@@ -34,6 +34,7 @@
 
       <!-- Add collection button -->
       <input ng-if="main.userID === main.selectedUserId"
+        ng-click="user.showAddCollForm(true)"
         type="button"
         class="profilebutton"
         value="Add Collection">
@@ -104,8 +105,30 @@
           </div>
         </div> <!-- End thumbnail -->
       </div> <!-- End picture gallery -->
-    </div>
-
+      </div>
 
   </div>
 </div>
+
+<!-- Modal for adding a collection -->
+<div ng-if="user.showEditModal" class="modal container">
+  <div class="modal-content">
+    <span ng-click="user.showAddCollForm(false)" class="close">&times;</span>
+    <div class="modalBigText">Add Collection</div>
+
+    <div class="modalFields edit-info-form">
+      <form class="modalFields" ng-submit="user.saveNewCollection()">
+
+        <input type="text" ng-model="user.newCollection.title" placeholder="Title">
+
+        <input type="text" ng-model="user.newCollection.description" placeholder="description">
+
+        <input type="text" ng-model="user.newCollection.url" placeholder="Profile Pic URL">
+
+        <input type="submit" class="profileButton" value="Save">
+
+      </form>
+    </div> <!-- end modalFields -->
+
+  </div> <!-- end modal-content -->
+</div> <!-- end modal container -->
