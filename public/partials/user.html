@@ -44,29 +44,11 @@
       <div class="myheader">Pictures</div>
 
       <!-- Add picture button -->
-      <input ng-if="main.userID === main.selectedUserId && user.addPicFormVisible === false"
+      <input ng-if="main.userID === main.selectedUserId"
         ng-click="user.showAddPicForm(true)"
         type="button"
         class="profilebutton"
         value="Add Picture">
-
-      <!-- Add a new picture -->
-      <div class="edit-info-form" ng-if="user.addPicFormVisible">
-        Add New Picture
-        <form ng-submit="user.addPicture(main.userID)" >
-
-          <input ng-model="user.newPicture.title" type="text" placeholder="Title">
-          <textarea ng-model="user.newPicture.description" rows="5" placeholder="Description"></textarea>
-          <input ng-model="user.newPicture.url" type="text" placeholder="URL">
-
-          <div >
-            <input type="submit" value="Save">
-            <input ng-click="user.showAddPicForm(false)" type="button" value="Cancel">
-          </div>
-
-        </form>
-      </div>  <!-- end add new picture -->
-
 
       <!-- Picture gallery -->
       <div class="gallery">
@@ -111,6 +93,29 @@
         <input type="text" ng-model="user.newCollection.description" placeholder="description">
 
         <input type="text" ng-model="user.newCollection.url" placeholder="Profile Pic URL">
+
+        <input type="submit" class="profileButton" value="Save">
+
+      </form>
+    </div> <!-- end modalFields -->
+
+  </div> <!-- end modal-content -->
+</div> <!-- end modal container -->
+
+<!-- Modal for adding a picture -->
+<div ng-if="user.showAddPicModal" class="modal container">
+  <div class="modal-content">
+    <span ng-click="user.showAddPicForm(false)" class="close">&times;</span>
+    <div class="modalBigText">Add Picture</div>
+
+    <div class="modalFields edit-info-form">
+      <form class="modalFields" ng-submit="user.saveNewPicture()">
+
+        <input type="text" ng-model="user.newPicture.title" placeholder="Title">
+
+        <input type="text" ng-model="user.newPicture.description" placeholder="description">
+
+        <input type="text" ng-model="user.newPicture.url" placeholder="Profile Pic URL">
 
         <input type="submit" class="profileButton" value="Save">
 

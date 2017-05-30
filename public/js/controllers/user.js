@@ -24,9 +24,9 @@
     vm.showeditform = false;
     vm.pictures = [];
     vm.collections = [];
-    vm.addPicFormVisible = false;
     vm.newPicture = {};
-    vm.showEditModal = false;
+    vm.showEditModal = false; // shows modal for adding a collection
+    vm.showAddPicModal = false;
     vm.showUserModal = false;
     vm.newCollection = {};
 
@@ -35,9 +35,9 @@
     vm.saveUserInfo = saveUserInfo;
     vm.deletePicture = deletePicture;
     vm.showAddPicForm = showAddPicForm;
-    vm.addPicture = addPicture;
     vm.showAddCollForm = showAddCollForm;
     vm.saveNewCollection = saveNewCollection;
+    vm.saveNewPicture = saveNewPicture;
 
     //**************************************
     // Controller functions
@@ -108,7 +108,7 @@
     }
 
     function showAddPicForm(value) {
-      vm.addPicFormVisible = value;
+      vm.showAddPicModal = value;
     }
 
     function showAddCollForm(value) {
@@ -135,11 +135,15 @@
     }
 
     // Add a new picture to the db
-    function addPicture(userID) {
+    function saveNewPicture() {
 
-      if (vm.newPicture.url === undefined || vm.newPicture.url === "") return;
+      console.log("saveNewPicture");
+      if (vm.newPicture.url === undefined || vm.newPicture.url === "") {
+        console.log("saveNewPicture url not set");
+         return;
+       }
 
-      vm.newPicture.user_id = userID;
+      vm.newPicture.user_id = vm.currentUser.id;
 
       $http({
         method: 'POST',
@@ -150,7 +154,7 @@
         vm.newPicture = {};
         vm.showAddPicForm(false);
       }, function(error) {
-        console.log("user.addPicture: ", error);
+        console.log("user.saveNewPicture: ", error);
       })
     }
 
