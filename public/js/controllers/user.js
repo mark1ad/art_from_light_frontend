@@ -27,12 +27,12 @@
     vm.addPicFormVisible = false;
     vm.newPicture = {};
     vm.showEditModal = false;
+    vm.showUserModal = false;
     vm.newCollection = {};
 
     vm.showPage = showPage;
-    vm.startEditInfo = startEditInfo;
+    vm.showEditUserModal = showEditUserModal;
     vm.saveUserInfo = saveUserInfo;
-    vm.cancelInfoEdit = cancelInfoEdit;
     vm.deletePicture = deletePicture;
     vm.showAddPicForm = showAddPicForm;
     vm.addPicture = addPicture;
@@ -62,32 +62,36 @@
       )
     }
 
-    function startEditInfo() {
-      vm.showeditform = true;
-      Object.assign(vm.userInfoEdit, vm.currentUser);
+    function showEditUserModal(value) {
+      vm.userInfoEdit.name = vm.currentUser.name;
+      vm.userInfoEdit.address = vm.currentUser.address;
+      vm.userInfoEdit.profile_url = vm.currentUser.profile_url;
+      vm.userInfoEdit.password = vm.currentUser.password_digest;
+
+      vm.showUserModal = value;
     }
 
     function saveUserInfo() {
 
-      if (vm.userInfoEdit.name === undefined || vm.userInfoEdit === "") return;
+      if (vm.userInfoEdit.name === undefined || vm.userInfoEdit.name === "") return;
 
       $http(
         {
           method: 'PUT',
           url: URL + 'users/' + vm.currentUser.id,
-          data: vm.userInfoEdit
+          data: {
+            name: vm.userInfoEdit.name,
+            address: vm.userInfoEdit.address,
+            password: vm.userInfoEdit.password,
+            profile_url: vm.userInfoEdit.profile_url
+          }
         }).then( function(response) {
-          vm.currentUser = response.data;
+          Object.assign(vm.currentUser, response.data);
         }, function(error) {
           console.log('user.saveUserInfo: ', error);
         })
 
-      vm.showeditform = false;
-    }
-
-    function cancelInfoEdit() {
-      vm.showeditform = false;
-      vm.userIndoEdit = {};
+        vm.showEditUserModal(false);
     }
 
     function deletePicture(id, index) {
