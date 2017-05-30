@@ -6,6 +6,10 @@
     <div ng-click="main.showUserPage(collection.curCollection.user_id)" class="myheader thumbuser">{{collection.userName}}</div>
     <div>{{collection.curCollection.description}}</div>
 
+    <input type="button" ng-if="main.userID === main.selectedUserId"
+    class='profilebutton' ng-click="main.showSelectPicturesPage()"
+    name="Edit" value="Add Pictures">
+
     <div class="gallery-container">
       <div class="gallery">
 

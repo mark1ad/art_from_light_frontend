@@ -25,6 +25,7 @@
     vm.collectionsPage = 4;
     vm.photosPage = 5;
     vm.collectionPage = 6;
+    vm.selectPicturesPage = 7;
 
     // For modal that displays full sized picture
     vm.modalVisable = false;
@@ -36,6 +37,7 @@
     vm.selectedCollection = {};
     vm.userID = 0;
     vm.userName = "";
+
     vm.showLogin = showLogin;
     vm.showRegister = showRegister;
     vm.signOut = signOut;
@@ -45,6 +47,7 @@
     vm.showCollectionsPage = showCollectionsPage;
     vm.showPhotographs =  showPhotographs;
     vm.showPhotoModal = showPhotoModal;
+    vm.showSelectPicturesPage = showSelectPicturesPage;
     vm.closePhotoModal = closePhotoModal;
     vm.savePhotoModal = savePhotoModal;
 
@@ -98,6 +101,11 @@
         console.log("photos.showPHoto: ", error);
       })
 
+    }
+
+    function showSelectPicturesPage(collection) {
+      vm.curPage = vm.selectPicturesPage;
+      vm.selectedCollection = collection;
     }
 
     function closePhotoModal() {
