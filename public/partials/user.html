@@ -43,8 +43,8 @@
         <!-- Thumbnail -->
         <div ng-repeat="collection in user.collections" class="thumbnail">
           <div class="thumbnail-data">
-            <img ng-click="main.showCollectionPage()" src={{collection.url}} alt="">
-            <div ng-click="main.showCollectionPage()" class="thumbuser">{{collection.title}}</div>
+            <img ng-click="main.showCollectionPage(collection)" src={{collection.url}} alt="">
+            <div ng-click="main.showCollectionPage(collection)" class="thumbuser">{{collection.title}}</div>
           </div>
         </div> <!-- End of Thumbnail -->
       </div> <!-- end of inner collection gallery -->

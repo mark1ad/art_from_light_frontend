@@ -12,7 +12,19 @@
         <div class="gallery-container">
           <div class="gallery">
 
-            
+            <div ng-repeat="picture in collection.pictures" class="thumbnail">
+              <div class="thumbnail-data">
+
+              <img  ng-click="main.showPhotoModal(picture.id)" src={{picture.url}} alt="">
+
+              <div ng-click="main.showPhotoModal(picture.id)" class="thumbuser">{{picture.title}}</div>
+
+              <div>{{picture.description}}</div>
+
+            </div> <!-- thumbnail-data -->
+            </div> <!-- thumbnail -->
+
+
           </div> <!-- end gallery -->
         </div> <!-- end gallery-container -->
 
