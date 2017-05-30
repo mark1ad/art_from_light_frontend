@@ -67,3 +67,15 @@
     cursor: pointer;
   }
 }
+
+input[type=button] {
+  margin-top: 10px;
+  border: none;
+  background-color: white;
+  @include box(3px, 3px, $grey);
+  font-size: .8em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px;
+  cursor: pointer;
+}
