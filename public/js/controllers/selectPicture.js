@@ -38,9 +38,9 @@
         // get all pictures
         $http({
           method: 'GET',
-          url: URL + 'pictures'
+          url: URL + 'collections/' + vm.collection.id + '/pics_not_in'
         }).then( function(response) {
-          vm.pictures = response.data;
+          vm.pictures = response.data.pics;
         }, function(error) {
           console.log("selectPicture.initPage: ", error);
         })
