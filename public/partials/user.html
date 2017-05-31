@@ -33,6 +33,12 @@
           <div class="thumbnail-data">
             <img ng-click="main.showCollectionPage(collection)" src={{collection.url}} alt="">
             <div ng-click="main.showCollectionPage(collection)" class="thumbuser">{{collection.title}}</div>
+
+            <div ng-if="main.userID === main.selectedUserId" >
+              <div ng-click="main.showCollectionPage(collection)" class="thumbcmdlink thumbuser">Edit</div>
+
+              <div ng-click="main.showCollectionPage(collection)" class="thumbcmdlink thumbuser">Delete</div>
+            </div>
           </div>
         </div> <!-- End of Thumbnail -->
       </div> <!-- end of inner collection gallery -->
@@ -64,12 +70,12 @@
             </div>
 
             <div ng-if="main.userID === main.selectedUserId" >
-              <input ng-click="user.deletePicture(picture.id, $index)"
-              type="button" value="Delete" class="profilebutton">
-
               <input type="button" value="Edit"
               ng-click="main.showPhotoModal(picture.id, true)"
               class="profilebutton">
+
+              <input ng-click="user.deletePicture(picture.id, $index)"
+              type="button" value="Delete" class="profilebutton">
             </div>
           </div>
         </div> <!-- End thumbnail -->
