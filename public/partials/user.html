@@ -46,7 +46,7 @@
     </div> <!-- End of collection gallery -->
 
     <!-- Picture gallery -->
-    <div ng-if="user.pictures.length !== 0"  class="gallery-container">
+    <div ng-if="user.pictures.length !== 0 || main.userID === main.selectedUserId"  class="gallery-container">
       <div class="myheader">Pictures</div>
 
       <!-- Add picture button -->

@@ -1,22 +1,36 @@
-<div class="container">
-  <div class="inner-container">
-    <div class="myheader">Photographs</div>
+<div class="homepagecontainer">
+  <div class="homepage">
+    <div class="sidebar">
+      <div class="sidebarheader">Tags</div>
 
-    <div class="gallery-container">
-      <div class="gallery">
-        <div ng-repeat="photo in photos.photos" class="thumbnail">
-          <div class="thumbnail-data">
+      <form class="sidebarbody" action="index.html" method="post">
+        <label ng-repeat="tag in photos.tags">
+          <input type="checkbox" name="" value="">
+          {{tag.name}}<br></label><br/>
+        </form>
+      </div>
 
-            <img ng-click="main.showPhotoModal(photo.id)"
-            src={{photo.url}} alt="">
+      <div class="container">
+        <div class="inner-container">
+          <div class="myheader">Photographs</div>
 
-            <div ng-click="main.showPhotoModal(photo.id)" class="thumbuser">{{photo.title}}</div>
+          <div class="gallery-container">
+            <div class="gallery">
+              <div ng-repeat="photo in photos.photos" class="thumbnail">
+                <div class="thumbnail-data">
 
-          </div> <!-- end thumbnail-data -->
-        </div> <!-- end thumbnail -->
+                  <img ng-click="main.showPhotoModal(photo.id)"
+                  src={{photo.url}} alt="">
 
-      </div> <!-- end gallery -->
-    </div> <!-- end gallery-container -->
+                  <div ng-click="main.showPhotoModal(photo.id)" class="thumbuser">{{photo.title}}</div>
 
-  </div> <!-- end inner-container -->
-</div> <!-- end container -->
+                </div> <!-- end thumbnail-data -->
+              </div> <!-- end thumbnail -->
+
+            </div> <!-- end gallery -->
+          </div> <!-- end gallery-container -->
+
+        </div> <!-- end inner-container -->
+      </div> <!-- end container -->
+    </div> <!-- end homepage -->
+  </div> <!-- end homepagecontainer -->
