@@ -24,6 +24,7 @@
     vm.pictures = [];
 
     vm.initPage = initPage;
+    vm.removePicture = removePicture;
 
     //***********************************
     // Controller functions
@@ -41,6 +42,20 @@
         getPictures(coll.id);
       }, function(error) {
         console.log("collections.initPage: ", error);
+      })
+    }
+
+    function removePicture(picID) {
+      $http({
+        method: 'POST',
+        url: URL + 'collections/' + vm.curCollection.id + '/picture_remove',
+        data: {
+          picture_id: picID
+        }
+      }).then( function(response) {
+        vm.initPage(vm.curCollection)
+      }, function(error){
+        console.log(("collection.removePicture: ", error));
       })
     }
 

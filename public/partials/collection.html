@@ -22,6 +22,10 @@
 
             <div>{{picture.description}}</div>
 
+            <input ng-if="main.userID === main.selectedUserId" type="button" value="Remove Picture"
+            ng-click="collection.removePicture(picture.id)"
+            class="profilebutton">
+
           </div> <!-- thumbnail-data -->
         </div> <!-- thumbnail -->
 
