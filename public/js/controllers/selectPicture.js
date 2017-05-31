@@ -54,7 +54,6 @@
       }
 
       function selectPicture(id) {
-        console.log("selectPicture ", id);
         index = vm.selectedPictures.indexOf(id);
         if (index === -1) {
           vm.selectedPictures.push(id);
@@ -65,16 +64,17 @@
       }
 
       function addNewPictures() {
-        console.log("addNewPictures ", vm.selectedPictures);
+
+        var str = vm.selectedPictures.join();
 
         $http({
           method: 'POST',
           url: URL + 'collections/' + vm.collection.id + '/picture_add',
           data: {
-            picture_id: vm.selectedPictures[0]
+            picture_id: str
           }
         }).then( function(response) {
-          console.log(">>>>>>>>>>success");
+          // nothing to do. changing to collection page done in selectPicture.html
         }, function(error) {
           console.log("selectPicture.addNewPicture: ", error);
         })
