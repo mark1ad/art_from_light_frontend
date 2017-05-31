@@ -1,6 +1,28 @@
 <div class="container ">
   <div class="inner-container">
-    <h1>selectPicturesPage</h1>
+
+    <div class="myheader">{{ctrl.collection.title}}</div>
+    <p>Adding Pictures to Collection</p>
+    <p>Click on thumbnail to select a picture.</p>
+
+    <input type="button"
+    class='profilebutton' ng-click="ctrl.addNewPictures()"
+    value="Add Pictures">
+
+    <div class="gallery-container">
+      <div class="gallery">
+
+        <div ng-class="{'thumboutline': ctrl.pictureIsSelected(picture.id) === true}" ng-repeat="picture in ctrl.pictures" class="thumbnail">
+          <div class="thumbnail-data">
+
+            <img ng-click="ctrl.selectPicture(picture.id)" src={{picture.url}} alt="">
+            <div ng-click="ctrl.selectPicture(picture.id)" class="thumbuser">{{picture.title}}</div>
+
+          </div>
+        </div> <!-- end thumbnail -->
+
+      </div> <!-- end gallery -->
+    </div> <!-- end gallery-container -->
 
   </div> <!-- end inner-container -->
 </div> <!-- end container -->

@@ -148,6 +148,9 @@ body {
 .thumbuser:hover {
   color: #33ccff; }
 
+.thumboutline {
+  border: 1px solid #33ccff; }
+
 .logincontainer {
   display: flex;
   justify-content: center; }

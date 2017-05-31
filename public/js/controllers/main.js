@@ -105,7 +105,7 @@
 
     function showSelectPicturesPage(collection) {
       vm.curPage = vm.selectPicturesPage;
-      vm.selectedCollection = collection;
+      Object.assign(vm.selectedCollection, collection);
     }
 
     function closePhotoModal() {
