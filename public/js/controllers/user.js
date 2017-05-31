@@ -37,6 +37,7 @@
     vm.showAddPicForm = showAddPicForm;
     vm.showAddCollForm = showAddCollForm;
     vm.saveNewCollection = saveNewCollection;
+    vm.deleteCollection = deleteCollection;
     vm.saveNewPicture = saveNewPicture;
 
     //**************************************
@@ -131,6 +132,17 @@
         vm.showAddCollForm(false);
       }, function(error) {
         console.log("user.saveNewCollection: ", error);
+      })
+    }
+
+    function deleteCollection(coll) {
+      $http({
+        method: 'DELETE',
+        url: URL + 'collections/' + coll.id
+      }).then(function(resonse) {
+        vm.showPage(vm.currentUser.id);
+      }, function(error) {
+        console.log("user.deleteCollection: ", error);
       })
     }
 

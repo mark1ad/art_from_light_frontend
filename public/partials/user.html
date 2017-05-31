@@ -16,7 +16,7 @@
     </div>
 
     <!-- Collections gallery -->
-    <div ng-if="user.collections.length !== 0" class="gallery-container edit-info-form">
+    <div ng-if="user.collections.length !== 0 || main.userID === main.selectedUserId" class="gallery-container edit-info-form">
       <div class="myheader">Collections</div>
 
       <!-- Add collection button -->
@@ -37,7 +37,7 @@
             <div ng-if="main.userID === main.selectedUserId" >
               <div ng-click="main.showCollectionPage(collection)" class="thumbcmdlink thumbuser">Edit</div>
 
-              <div ng-click="main.showCollectionPage(collection)" class="thumbcmdlink thumbuser">Delete</div>
+              <div ng-click="user.deleteCollection(collection)" class="thumbcmdlink thumbuser">Delete</div>
             </div>
           </div>
         </div> <!-- End of Thumbnail -->
