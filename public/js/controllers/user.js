@@ -17,7 +17,10 @@
       URL = 'https://art-from-light-api.herokuapp.com/';
     }
 
+    // for uploading to cloudinary
     var imgPreview;
+    var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/di22i0ckg/upload";
+    var CLOUDINARY_UPLOAD_PRESET = 'epytb4f4';
 
     const vm = this;
 
@@ -75,11 +78,13 @@
       var fileUpload = document.getElementById('file-upload');
       imgPreview = document.getElementById('img-preview');
       imgPreview.src = "";
+      vm.newPictureFile = null;
 
       fileUpload.addEventListener('change', function(event) {
 
         var tgt = event.target || window.event.srcElement;
         files = tgt.files;
+        vm.newPictureFile = files[0];
 
         if (FileReader && files && files.length) {
           var fr = new FileReader();
@@ -185,24 +190,27 @@
     function saveNewPicture() {
 
       console.log("saveNewPicture");
-      if (vm.newPicture.url === undefined || vm.newPicture.url === "") {
+      console.log(vm.newPictureFile);
+      if (vm.newPictureFile === undefined || vm.newPictureFile === null) {
         console.log("saveNewPicture url not set");
          return;
        }
 
       vm.newPicture.user_id = vm.currentUser.id;
 
-      $http({
-        method: 'POST',
-        url: URL + '/pictures',
-        data: vm.newPicture
-      }).then( function(response) {
-        vm.pictures.unshift( response.data);
-        vm.newPicture = {};
-        vm.showAddPicForm(false);
-      }, function(error) {
-        console.log("user.saveNewPicture: ", error);
-      })
+      uploadToCloudinary();
+
+      // $http({
+      //   method: 'POST',
+      //   url: URL + '/pictures',
+      //   data: vm.newPicture
+      // }).then( function(response) {
+      //   vm.pictures.unshift( response.data);
+      //   vm.newPicture = {};
+      //   vm.showAddPicForm(false);
+      // }, function(error) {
+      //   console.log("user.saveNewPicture: ", error);
+      // })
     }
 
     //========================================
@@ -228,6 +236,27 @@
       }, function(error) {
         console.log("user.getUserCollections ", error);
       })
+    }
+
+    function uploadToCloudinary() {
+      formData = new FormData();
+      var formData = new FormData();
+      formData.append('file', vm.newPictureFile);
+      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+
+      axios({
+        url: CLOUDINARY_URL,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: formData
+      }).then(function(res) {
+        console.log(res);
+        imgPreview.src = res.data.secure_url;
+      }).catch(function(err) {
+        console.error(err);
+      });
     }
 
   }
