@@ -198,23 +198,48 @@
 
       vm.newPicture.user_id = vm.currentUser.id;
 
-      uploadToCloudinary();
+      formData = new FormData();
+      var formData = new FormData();
+      formData.append('file', vm.newPictureFile);
+      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET)
 
-      // $http({
-      //   method: 'POST',
-      //   url: URL + '/pictures',
-      //   data: vm.newPicture
-      // }).then( function(response) {
-      //   vm.pictures.unshift( response.data);
-      //   vm.newPicture = {};
-      //   vm.showAddPicForm(false);
-      // }, function(error) {
-      //   console.log("user.saveNewPicture: ", error);
-      // })
+      // upload to cloudinary
+      axios({
+        url: CLOUDINARY_URL,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: formData
+      }).then(function(res) {
+        console.log(res);
+        // imgPreview.src = res.data.secure_url;
+        vm.newPicture.url = res.data.secure_url;
+        saveNewPicToDB();
+      }).catch(function(err) {
+        console.error(err);
+      });
+
+
     }
 
     //========================================
     // helper functions
+
+    function saveNewPicToDB() {
+      $http({
+        method: 'POST',
+        url: URL + '/pictures',
+        data: vm.newPicture
+      }).then( function(response) {
+        vm.pictures.unshift( response.data);
+        vm.newPicture = {};
+        vm.showAddPicForm(false);
+      }, function(error) {
+        console.log("user.saveNewPicture: ", error);
+      })
+    }
+
     function getUserPictures(userID) {
       $http({
         method: 'GET',
