@@ -10,9 +10,10 @@
       <img src={{user.currentUser.profile_url}} alt="">
       {{user.currentUser.address}}
 
-      <input type="button" ng-if="main.userID === main.selectedUserId"
-      class='profilebutton' ng-click="user.showEditUserModal(true)"
-      name="Edit" value="Edit Profile">
+      <div ng-if="main.userID === main.selectedUserId"
+        ng-click="user.showEditUserModal(true)"
+        class="thumbcmdlink thumbuser"
+        >Edit Profile</div>
     </div>
 
     <!-- Collections gallery -->
@@ -20,11 +21,11 @@
       <div class="myheader">Collections</div>
 
       <!-- Add collection button -->
-      <input ng-if="main.userID === main.selectedUserId"
+      <div ng-if="main.userID === main.selectedUserId"
         ng-click="user.showAddCollForm(true)"
-        type="button"
-        class="profilebutton"
-        value="Add Collection">
+        class="thumbcmdlink thumbuser"
+        >Add Collection</div>
+
 
       <!-- Inner collection gallery -->
       <div class="gallery">
@@ -50,11 +51,10 @@
       <div class="myheader">Pictures</div>
 
       <!-- Add picture button -->
-      <input ng-if="main.userID === main.selectedUserId"
+      <div ng-if="main.userID === main.selectedUserId"
         ng-click="user.showAddPicForm(true)"
-        type="button"
-        class="profilebutton"
-        value="Add Picture">
+        class="thumbcmdlink thumbuser"
+        >Add Picture</div>
 
       <!-- Picture gallery -->
       <div class="gallery">
@@ -70,12 +70,15 @@
             </div>
 
             <div ng-if="main.userID === main.selectedUserId" >
-              <input type="button" value="Edit"
+              <div ng-if="main.userID === main.selectedUserId"
               ng-click="main.showPhotoModal(picture.id, true)"
-              class="profilebutton">
+              class="thumbcmdlink thumbuser"
+              >Edit</div>
 
-              <input ng-click="user.deletePicture(picture.id, $index)"
-              type="button" value="Delete" class="profilebutton">
+              <div ng-if="main.userID === main.selectedUserId"
+              ng-click="user.deletePicture(picture.id, $index)"
+              class="thumbcmdlink thumbuser"
+              >Delete</div>
             </div>
           </div>
         </div> <!-- End thumbnail -->

@@ -76,6 +76,7 @@
 
     function showCollectionPage(collection) {
       vm.curPage = vm.collectionPage;
+      vm.selectedUserId = collection.user_id;
       vm.selectedCollection = collection;
     }
 

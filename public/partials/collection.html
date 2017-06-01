@@ -6,9 +6,11 @@
     <div ng-click="main.showUserPage(collection.curCollection.user_id)" class="myheader thumbuser">{{collection.userName}}</div>
     <div>{{collection.curCollection.description}}</div>
 
-    <input type="button" ng-if="main.userID === main.selectedUserId"
-    class='profilebutton' ng-click="main.showSelectPicturesPage(collection.curCollection)"
-    name="Edit" value="Add Pictures">
+    <!-- Add pictures link -->
+    <div ng-if="main.userID === main.selectedUserId"
+      ng-click="main.showSelectPicturesPage(collection.curCollection)"
+      class="thumbcmdlink thumbuser"
+      >Add Pictures</div>
 
     <div class="gallery-container">
       <div class="gallery">
@@ -22,9 +24,11 @@
 
             <div>{{picture.description}}</div>
 
-            <input ng-if="main.userID === main.selectedUserId" type="button" value="Remove Picture"
-            ng-click="collection.removePicture(picture.id)"
-            class="profilebutton">
+            <div ng-if="main.userID === main.selectedUserId"
+              ng-click="collection.removePicture(picture.id)"
+              class="thumbcmdlink thumbuser"
+              >Remove Picture</div>
+
 
           </div> <!-- thumbnail-data -->
         </div> <!-- thumbnail -->
