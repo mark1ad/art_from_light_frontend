@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mark1ad/art_from_light_frontend#readme",
   "dependencies": {
+    "cloudinary": "^1.9.0",
     "express": "^4.15.3"
   }
 }

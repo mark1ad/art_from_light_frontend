@@ -109,19 +109,24 @@
 </div> <!-- end modal container -->
 
 <!-- Modal for adding a picture -->
-<div ng-if="user.showAddPicModal" class="modal container">
+<div ng-show="user.showAddPicModal" ng-init="user.initAddPicModal()" class="modal container">
   <div class="modal-content">
     <span ng-click="user.showAddPicForm(false)" class="close">&times;</span>
     <div class="modalBigText">Add Picture</div>
 
     <div class="modalFields edit-info-form">
+      <img id="img-preview" src="" alt="">
+
+      <label class="thumbcmdlink thumbuser" for="file-upload">
+        <input id="file-upload" type="file" style="display:none;">
+        Select an Image
+      </label>
+
       <form class="modalFields" ng-submit="user.saveNewPicture()">
 
         <input type="text" ng-model="user.newPicture.title" placeholder="Title">
 
         <input type="text" ng-model="user.newPicture.description" placeholder="description">
-
-        <input type="text" ng-model="user.newPicture.url" placeholder="Profile Pic URL">
 
         <input type="submit" class="profileButton" value="Save">
 
@@ -148,7 +153,7 @@
 
           <input type="text" ng-model="user.userInfoEdit.profile_url" placeholder="Profile Pic URL">
 
-          <input type="submit" value="Save">
+          <input type="sumbit" value="Save">
 
         </form>
     </div>

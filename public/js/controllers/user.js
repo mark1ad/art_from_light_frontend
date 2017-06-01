@@ -1,3 +1,5 @@
+
+
  (function() {
 
   angular
@@ -15,6 +17,8 @@
       URL = 'https://art-from-light-api.herokuapp.com/';
     }
 
+    var imgPreview;
+
     const vm = this;
 
     //**************************************
@@ -25,6 +29,7 @@
     vm.pictures = [];
     vm.collections = [];
     vm.newPicture = {};
+    vm.newPictureFile = null;
     vm.showEditModal = false; // shows modal for adding a collection
     vm.showAddPicModal = false;
     vm.showUserModal = false;
@@ -39,6 +44,7 @@
     vm.saveNewCollection = saveNewCollection;
     vm.deleteCollection = deleteCollection;
     vm.saveNewPicture = saveNewPicture;
+    vm.initAddPicModal = initAddPicModal;
 
     //**************************************
     // Controller functions
@@ -61,6 +67,32 @@
           console.log("user.showPage errors: ", error);
         }
       )
+    }
+
+    function initAddPicModal() {
+      console.log("here");
+
+      var fileUpload = document.getElementById('file-upload');
+      imgPreview = document.getElementById('img-preview');
+      imgPreview.src = "";
+
+      fileUpload.addEventListener('change', function(event) {
+
+        var tgt = event.target || window.event.srcElement;
+        files = tgt.files;
+
+        if (FileReader && files && files.length) {
+          var fr = new FileReader();
+          fr.onload = function () {
+            imgPreview.src = fr.result;
+          }
+          fr.readAsDataURL(files[0]);
+        }
+        else {
+          console.log("user.eventListener failed");
+        }
+      })
+
     }
 
     function showEditUserModal(value) {
@@ -109,6 +141,9 @@
     }
 
     function showAddPicForm(value) {
+      if (imgPreview !== undefined) {
+      imgPreview.src = "";
+      }
       vm.showAddPicModal = value;
     }
 
@@ -196,4 +231,5 @@
     }
 
   }
+
 })();
