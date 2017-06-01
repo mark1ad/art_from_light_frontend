@@ -22,15 +22,19 @@
 
       vm.photos = [];
       vm.tags = [];
+      vm.selectedTags = [];
       vm.selectedPhoto = {};
       vm.showFullSize = false;
       vm.initPage = initPage;
+      vm.tagSelected = tagSelected;
 
       //*****************************
       // Controller functions
 
       function initPage() {
         vm.photos = [];
+        vm.tags = [];
+        vm.selectedTags = [];
 
         $http({
           method: 'GET',
@@ -41,6 +45,19 @@
         }, function( error) {
           console.log("photos.initPage: ", error);
         })
+      }
+
+      function tagSelected(id) {
+        console.log("tagSelected ", id);
+
+        index = vm.selectedTags.indexOf(id);
+        if (index === -1) {
+          vm.selectedTags.push(id);
+        }
+        else {
+          vm.selectedTags.splice(index, 1);
+        }
+        console.log( "selectedTags: ", vm.selectedTags);
       }
 
       //*************************

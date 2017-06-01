@@ -5,7 +5,7 @@
 
       <form class="sidebarbody" action="index.html" method="post">
         <label ng-repeat="tag in photos.tags">
-          <input type="checkbox" name="" value="">
+          <input type="checkbox" name="" value="" ng-click="photos.tagSelected(tag.id)">
           {{tag.name}}<br></label><br/>
         </form>
       </div>
