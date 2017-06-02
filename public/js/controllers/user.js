@@ -33,6 +33,7 @@
     vm.collections = [];
     vm.newPicture = {};
     vm.newPictureFile = null;
+    vm.newColPicFile = null;
     vm.showEditModal = false; // shows modal for adding a collection
     vm.showAddPicModal = false;
     vm.showUserModal = false;
@@ -43,6 +44,7 @@
     vm.saveUserInfo = saveUserInfo;
     vm.deletePicture = deletePicture;
     vm.showAddPicForm = showAddPicForm;
+    vm.initAddColModal = initAddColModal;
     vm.showAddCollForm = showAddCollForm;
     vm.saveNewCollection = saveNewCollection;
     vm.deleteCollection = deleteCollection;
@@ -72,8 +74,32 @@
       )
     }
 
+    function initAddColModal() {
+      var fileUpload = document.getElementById('col-file-upload');
+      colImgPreview = document.getElementById('col-img-preview');
+      colImgPreview.src = "";
+      vm.newColPicFile = null;
+
+      fileUpload.addEventListener('change', function(event) {
+
+        var tgt = event.target || window.event.srcElement;
+        files = tgt.files;
+        vm.newColPicFile = files[0];
+
+        if (FileReader && files && files.length) {
+          var fr = new FileReader();
+          fr.onload = function () {
+            colImgPreview.src = fr.result;
+          }
+          fr.readAsDataURL(files[0]);
+        }
+        else {
+          console.log("user.eventListener failed");
+        }
+      })
+    }
+
     function initAddPicModal() {
-      console.log("here");
 
       var fileUpload = document.getElementById('file-upload');
       imgPreview = document.getElementById('img-preview');
@@ -162,17 +188,39 @@
 
       vm.newCollection.user_id = vm.currentUser.id;
 
-      $http({
+      var formData = new FormData();
+      formData.append('file', vm.newColPicFile);
+      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+      // upload to cloudinary
+      axios({
+        url: CLOUDINARY_URL,
         method: 'POST',
-        url: URL + '/collections',
-        data: vm.newCollection
-      }).then( function (response) {
-        vm.collections.unshift( response.data);
-        vm.newCollection = {};
-        vm.showAddCollForm(false);
-      }, function(error) {
-        console.log("user.saveNewCollection: ", error);
-      })
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: formData
+      }).then(function(res) {
+        vm.newCollection.url = res.data.secure_url;
+
+        // save to db
+        $http({
+          method: 'POST',
+          url: URL + '/collections',
+          data: vm.newCollection
+        }).then( function (response) {
+          vm.collections.unshift( response.data);
+          vm.newCollection = {};
+          vm.showAddCollForm(false);
+        }, function(error) {
+          console.log("user.saveNewCollection: ", error);
+        })
+
+      }).catch(function(err) {
+        console.error(err);
+      });
+
+
     }
 
     function deleteCollection(coll) {
@@ -189,8 +237,6 @@
     // Add a new picture to the db
     function saveNewPicture() {
 
-      console.log("saveNewPicture");
-      console.log(vm.newPictureFile);
       if (vm.newPictureFile === undefined || vm.newPictureFile === null) {
         console.log("saveNewPicture url not set");
          return;
