@@ -1,5 +1,7 @@
 <div class="homepagecontainer">
+  <div class="myheader">Photographs</div>
   <div class="homepage">
+
     <div class="sidebar">
       <div class="sidebarheader">Tags</div>
 
@@ -12,7 +14,6 @@
 
       <div class="container">
         <div class="inner-container">
-          <div class="myheader">Photographs</div>
 
           <div class="gallery-container">
             <div class="gallery">
@@ -23,6 +24,10 @@
                   src={{photo.url}} alt="">
 
                   <div ng-click="main.showPhotoModal(photo.id)" class="thumbuser">{{photo.title}}</div>
+
+                  <div ng-click="main.showUserPage(photo.user_id)" class="thumbuser" >
+                    {{photo.user.name}}
+                  </div>
 
                 </div> <!-- end thumbnail-data -->
               </div> <!-- end thumbnail -->

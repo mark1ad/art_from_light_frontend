@@ -57,7 +57,18 @@
         else {
           vm.selectedTags.splice(index, 1);
         }
-        console.log( "selectedTags: ", vm.selectedTags);
+
+        vm.photos = [];
+
+        $http({
+          method: 'GET',
+          url: URL + 'tags/' + id + '/pictures'
+        }).then(function(response){
+          console.log("response.data ", response.data);
+          vm.photos = response.data;
+        }, function(error) {
+          console.log("photos.tagSelected: ", error);
+        })
       }
 
       //*************************
