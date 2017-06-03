@@ -17,15 +17,19 @@
       const vm = this;
 
       vm.user = {};
+      vm.badRegister = false;
       vm.register = register;
 
       function register(main) {
+
+        vm.badRegister = false;
 
         // User name and password are required
         if (vm.user.username === undefined ||
             vm.user.username === "" ||
             vm.user.password === undefined ||
             vm.user.password === "") {
+          vm.badRegister = true;
           return;
         }
 

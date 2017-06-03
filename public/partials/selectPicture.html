@@ -5,9 +5,10 @@
     <p>Adding Pictures to Collection</p>
     <p>Click on thumbnail to select a picture.</p>
 
-    <input type="button"
-    class='profilebutton' ng-click="ctrl.addNewPictures();main.showCollectionPage(ctrl.collection)"
-    value="Add Pictures">
+    <div
+      ng-click="ctrl.addNewPictures();main.showCollectionPage(ctrl.collection)"
+      class="thumbcmdlink thumbuser"
+      >Add Pictures</div>
 
     <div class="gallery-container">
       <div class="gallery">

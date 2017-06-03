@@ -34,6 +34,7 @@
     vm.newPicture = {};
     vm.newPictureFile = null;
     vm.newColPicFile = null;
+    vm.newProfilePicFile = null;
     vm.showEditModal = false; // shows modal for adding a collection
     vm.showAddPicModal = false;
     vm.showUserModal = false;
@@ -50,6 +51,7 @@
     vm.deleteCollection = deleteCollection;
     vm.saveNewPicture = saveNewPicture;
     vm.initAddPicModal = initAddPicModal;
+    vm.initEditProfileModal = initEditProfileModal;
 
     //**************************************
     // Controller functions
@@ -126,6 +128,32 @@
 
     }
 
+    function initEditProfileModal() {
+      var profileFileUpload = document.getElementById('profile-file-upload');
+      profileImgPreview = document.getElementById('profile-img-preview');
+      profileImgPreview.src = "";
+      vm.newProfilePicFile = null;
+
+      profileFileUpload.addEventListener('change', function(event) {
+
+        var tgt = event.target || window.event.srcElement;
+        files = tgt.files;
+        vm.newProfilePicFile = files[0];
+
+        if (FileReader && files && files.length) {
+          var fr = new FileReader();
+          fr.onload = function () {
+            profileImgPreview.src = fr.result;
+          }
+          fr.readAsDataURL(files[0]);
+        }
+        else {
+          console.log("user.eventListener failed");
+        }
+      })
+
+    }
+
     function showEditUserModal(value) {
       vm.userInfoEdit.name = vm.currentUser.name;
       vm.userInfoEdit.address = vm.currentUser.address;
@@ -139,23 +167,55 @@
 
       if (vm.userInfoEdit.name === undefined || vm.userInfoEdit.name === "") return;
 
-      $http(
-        {
-          method: 'PUT',
-          url: URL + 'users/' + vm.currentUser.id,
-          data: {
-            name: vm.userInfoEdit.name,
-            address: vm.userInfoEdit.address,
-            password: vm.userInfoEdit.password,
-            profile_url: vm.userInfoEdit.profile_url
-          }
-        }).then( function(response) {
-          Object.assign(vm.currentUser, response.data);
-        }, function(error) {
-          console.log('user.saveUserInfo: ', error);
-        })
+      var formData = new FormData();
+      formData.append('file', vm.newProfilePicFile);
+      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+      // upload to cloudinary
 
-        vm.showEditUserModal(false);
+      axios({
+        url: CLOUDINARY_URL,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: formData
+      }).then( function(response) {
+        vm.userInfoEdit.profile_url = response.data.secure_url;
+        // save to db
+        $http({
+            method: 'PUT',
+            url: URL + 'users/' + vm.currentUser.id,
+            data: {
+              name: vm.userInfoEdit.name,
+              address: vm.userInfoEdit.address,
+              password: vm.userInfoEdit.password,
+              profile_url: vm.userInfoEdit.profile_url
+            }
+          }).then( function(response) {
+            Object.assign(vm.currentUser, response.data);
+          }, function(error) {
+            console.log('user.saveUserInfo: ', error);
+          })
+
+          vm.showEditUserModal(false);
+      })
+      // $http(
+      //   {
+      //     method: 'PUT',
+      //     url: URL + 'users/' + vm.currentUser.id,
+      //     data: {
+      //       name: vm.userInfoEdit.name,
+      //       address: vm.userInfoEdit.address,
+      //       password: vm.userInfoEdit.password,
+      //       profile_url: vm.userInfoEdit.profile_url
+      //     }
+      //   }).then( function(response) {
+      //     Object.assign(vm.currentUser, response.data);
+      //   }, function(error) {
+      //     console.log('user.saveUserInfo: ', error);
+      //   })
+      //
+      //   vm.showEditUserModal(false);
     }
 
     function deletePicture(id, index) {

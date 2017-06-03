@@ -146,25 +146,33 @@
 </div> <!-- end modal container -->
 
 <!-- Modal for editing photographer's bio -->
-<div ng-if="user.showUserModal" class="modal container">
+<div ng-show="user.showUserModal" ng-init="user.initEditProfileModal()" class="modal container">
   <div class="modal-content">
     <span ng-click="user.showEditUserModal(false)" class="close">&times;</span>
     <div class="modalBigText">Edit Information</div>
 
     <div class="modalFields edit-info-form">
-        <form class="modalFields" ng-submit="user.saveUserInfo()">
 
-          <input type="text" ng-model="user.userInfoEdit.name">
+      <img class="modalThumbPic" id="profile-img-preview" src={{user.userInfoEdit.profile_url}} alt="">
 
-          <input type="text" ng-model="user.userInfoEdit.address" placeholder="Address">
+      <label class="thumbcmdlink thumbuser" for="profile-file-upload">
+        <input id="profile-file-upload" type="file" accept="image/*" style="display:none;">
+        Select Profile Picture
+      </label>
 
-          <input type="password" ng-model="user.userInfoEdit.password" placeholder="Password">
+      <form class="modalFields" ng-submit="user.saveUserInfo()">
 
-          <input type="text" ng-model="user.userInfoEdit.profile_url" placeholder="Profile Pic URL">
+        <input type="text" ng-model="user.userInfoEdit.name">
 
-          <input type="sumbit" value="Save">
+        <input type="text" ng-model="user.userInfoEdit.address" placeholder="Address">
 
-        </form>
+        <input type="password" ng-model="user.userInfoEdit.password" placeholder="Password">
+
+        <!-- <input type="text" ng-model="user.userInfoEdit.profile_url" placeholder="Profile Pic URL"> -->
+
+        <input type="submit" class="profileButton" value="Save">
+
+      </form>
     </div>
 
   </div> <!-- end modal content -->
