@@ -1,24 +1,16 @@
 {
   "name": "art_from_light_frontend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mark1ad/art_from_light_frontend.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mark1ad/art_from_light_frontend/issues"
-  },
-  "homepage": "https://github.com/mark1ad/art_from_light_frontend#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "cloudinary": "^1.9.0",
-    "express": "^4.15.3"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.13"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }

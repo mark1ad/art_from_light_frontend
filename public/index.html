@@ -1,94 +1,40 @@
-<!DOCTYPE html>
-<html ng-app="artFromLightApp">
-<head>
-  <meta charset="utf-8">
-  <title>Art From Light</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/js/app.js" charset="utf-8"></script>
-  <script src="/js/controllers/main.js" charset="utf-8"></script>
-  <script src="/js/controllers/home.js" charset="utf-8"></script>
-  <script src="/js/controllers/login.js" charset="utf-8"></script>
-  <script src="/js/controllers/user.js" charset="utf-8"></script>
-  <script src="/js/controllers/register.js" charset="utf-8"></script>
-  <script src="/js/controllers/collections.js" charset="utf-8"></script>
-  <script src="/js/controllers/collection.js" charset="utf-8"></script>
-  <script src="/js/controllers/photos.js" charset="utf-8"></script>
-  <script src="/js/controllers/selectPicture.js" charset="utf-8"></script>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-  <!-- fonts and styles -->
-  <link href="https://fonts.googleapis.com/css?family=Nunito|Quicksand|Raleway" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body ng-controller="MainController as main">
-  <div id="wrap">
-    <div id="main">
-
-      <!-- Header and nav  bar -->
-      <div
-      ng-include="'partials/header.html'"></div>
-
-      <!-- home page  -->
-      <div ng-if="main.curPage === main.homePage" ng-controller="HomeController as home"
-      ng-include="'partials/home.html'"
-      ng-init='home.getAllUsers()'></div>
-
-      <!-- User page -->
-      <div
-      ng-if="main.curPage === main.userPage"
-      ng-controller="UserPageController as user"
-      ng-include="'partials/user.html'"
-      ng-init="user.showPage(main.selectedUserId)"></div>
-
-      <!-- modal for showing full sized picture -->
-      <div ng-if="main.modalVisable"
-      ng-include="'partials/photoModal.html'"
-      ></div>
-
-      <!-- Collections page -->
-      <div ng-if="main.curPage === main.collectionsPage"
-      ng-controller="CollectionsController as collection"
-      ng-include="'partials/collections.html'"
-      ng-init="collection.initPage()"></div>
-
-      <!-- Collection page - shows a single collection  -->
-      <div ng-if="main.curPage === main.collectionPage"
-      ng-controller="CollectionController as collection"
-      ng-include="'partials/collection.html'"
-      ng-init="collection.initPage(main.selectedCollection)"
-      ></div>
-
-      <!-- Select Pictures Page  -->
-      <div ng-if="main.curPage == main.selectPicturesPage"
-        ng-include="'partials/selectPicture.html'"
-        ng-controller="SelectPicsController as ctrl"
-        ng-init="ctrl.initPage(main.selectedCollection)"
-      ></div>
-
-      <!-- photos page -->
-      <div ng-if="main.curPage === main.photosPage"
-      ng-controller="PhotosController as photos"
-      ng-include="'partials/photos.html'"
-      ng-init="photos.initPage()"></div>
-
-      <!-- login page -->
-      <div  ng-if="main.curPage === main.loginPage"
-      ng-include="'partials/login.html'"
-      ng-controller="LoginController as login"></div>
-
-      <!-- Register page -->
-      <div ng-if="main.curPage === main.registerPage"
-      ng-include="'partials/register.html'"
-      ng-controller="RegisterController as register"></div>
-
-    </div> <!-- end of main -->
-  </div> <!-- end of wrap -->
-
-  <!-- footer -->
-  <div ng-include="'partials/footer.html'"></div>
-
-</body>
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>
